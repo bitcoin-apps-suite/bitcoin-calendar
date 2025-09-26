@@ -29,6 +29,9 @@
 		},
 		{
 			"path": "../../../../bitcoin-spreadsheets"
+		},
+		{
+			"path": "../../../trademarks"
 		}
 	],
 	"settings": {}

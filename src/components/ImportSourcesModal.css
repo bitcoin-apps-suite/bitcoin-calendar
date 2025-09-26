@@ -372,6 +372,33 @@
   background: #f7931a;
 }
 
+/* Import button styling in QuillEditor */
+.import-btn {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #6B46C1 0%, #9333EA 100%);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(147, 51, 234, 0.3);
+}
+
+.import-btn:hover {
+  background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.4);
+}
+
+.import-btn:active {
+  transform: translateY(0);
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .import-sources-modal {
