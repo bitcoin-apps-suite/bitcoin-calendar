@@ -72,8 +72,8 @@ const NFTPage: React.FC<NFTPageProps> = ({ isAuthenticated, currentUser }) => {
     },
     {
       id: '3',
-      name: '$BCALENDAR Launch Schedule',
-      description: 'Official launch schedule for the $BCALENDAR token including all events and milestones.',
+      name: '$BCAL Launch Schedule',
+      description: 'Official launch schedule for the $BCAL token including all events and milestones.',
       image: '/api/placeholder/300/300',
       eventCount: 8,
       creator: 'team.bitcoincalendar',

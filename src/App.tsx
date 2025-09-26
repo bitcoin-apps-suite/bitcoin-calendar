@@ -363,7 +363,7 @@ function App() {
       <Route path="/exchange" element={<ExchangePage isAuthenticated={isAuthenticated} currentUser={currentUser} />} />
       <Route path="/decrypt" element={<DecryptPage isAuthenticated={isAuthenticated} currentUser={currentUser} />} />
       <Route path="/export" element={<ImportPage />} />
-      <Route path="/" element={<CalendarPage isAuthenticated={isAuthenticated} currentUser={currentUser} />} />
+      <Route path="/" element={<CalendarPage isAuthenticated={isAuthenticated} currentUser={currentUser} devSidebarCollapsed={devSidebarCollapsed} isMobile={isMobile} />} />
       <Route path="/docs" element={<DocsPage />} />
       <Route path="/enterprise" element={<CommissionsPage />} />
       <Route path="/grants" element={<GrantsPage />} />

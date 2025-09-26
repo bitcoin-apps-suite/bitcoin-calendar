@@ -26,9 +26,11 @@ interface CalendarEvent {
 interface CalendarPageProps {
   isAuthenticated: boolean;
   currentUser: any;
+  devSidebarCollapsed?: boolean;
+  isMobile?: boolean;
 }
 
-const CalendarPage: React.FC<CalendarPageProps> = ({ isAuthenticated, currentUser }) => {
+const CalendarPage: React.FC<CalendarPageProps> = ({ isAuthenticated, currentUser, devSidebarCollapsed = false, isMobile = false }) => {
   const [events, setEvents] = useState<CalendarEvent[]>([
     {
       id: '1',
@@ -124,7 +126,7 @@ const CalendarPage: React.FC<CalendarPageProps> = ({ isAuthenticated, currentUse
   }));
 
   return (
-    <div className="calendar-page">
+    <div className={`calendar-page ${!isMobile && !devSidebarCollapsed ? 'sidebar-expanded' : ''} ${!isMobile && devSidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
       <div className="calendar-header">
         <div className="calendar-title-section">
           <Calendar className="calendar-icon" size={32} />

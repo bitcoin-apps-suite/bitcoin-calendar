@@ -4,8 +4,27 @@
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   color: #ffffff;
   padding: 0;
-  padding-left: 60px; /* Move content right to account for dev sidebar */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  transition: padding-left 0.3s ease;
+}
+
+/* Default state - no sidebar on mobile, collapsed sidebar on desktop */
+.calendar-page {
+  padding-left: 0;
+}
+
+/* Desktop: Sidebar collapsed */
+@media (min-width: 769px) {
+  .calendar-page.sidebar-collapsed {
+    padding-left: 60px;
+  }
+}
+
+/* Desktop: Sidebar expanded */
+@media (min-width: 769px) {
+  .calendar-page.sidebar-expanded {
+    padding-left: 260px;
+  }
 }
 
 .calendar-header {
@@ -30,7 +49,7 @@
 }
 
 .calendar-icon {
-  color: #f39c12;
+  color: #a855f7;
   flex-shrink: 0;
 }
 
@@ -38,7 +57,7 @@
   font-size: 28px;
   font-weight: 700;
   margin: 0;
-  background: linear-gradient(45deg, #f39c12, #e67e22);
+  background: linear-gradient(45deg, #8b5cf6, #d946ef);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -78,12 +97,12 @@
 }
 
 .action-btn.primary {
-  background: linear-gradient(45deg, #f39c12, #e67e22);
+  background: linear-gradient(45deg, #8b5cf6, #d946ef);
   color: white;
 }
 
 .action-btn.primary:hover {
-  background: linear-gradient(45deg, #e67e22, #d35400);
+  background: linear-gradient(45deg, #7c3aed, #c026d3);
   transform: translateY(-1px);
 }
 
@@ -371,7 +390,7 @@
 .stat-value {
   font-size: 20px;
   font-weight: 700;
-  color: #f39c12;
+  color: #a855f7;
   margin-bottom: 4px;
 }
 

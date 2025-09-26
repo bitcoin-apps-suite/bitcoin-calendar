@@ -44,14 +44,14 @@ interface ExchangePageProps {
 }
 
 const ExchangePage: React.FC<ExchangePageProps> = ({ isAuthenticated, currentUser }) => {
-  const [selectedPair, setSelectedPair] = useState('BCALENDAR/BSV');
+  const [selectedPair, setSelectedPair] = useState('BCAL/BSV');
   const [tradeType, setTradeType] = useState<'buy' | 'sell'>('buy');
   const [amount, setAmount] = useState('');
   const [price, setPrice] = useState('');
 
   const tokenPairs: TokenPair[] = [
     {
-      from: 'BCALENDAR',
+      from: 'BCAL',
       to: 'BSV',
       price: 0.00024,
       change24h: 15.7,
@@ -59,7 +59,7 @@ const ExchangePage: React.FC<ExchangePageProps> = ({ isAuthenticated, currentUse
       lastUpdate: new Date().toISOString()
     },
     {
-      from: 'BCALENDAR',
+      from: 'BCAL',
       to: 'USD',
       price: 0.15,
       change24h: 12.3,
@@ -80,7 +80,7 @@ const ExchangePage: React.FC<ExchangePageProps> = ({ isAuthenticated, currentUse
     {
       id: '1',
       type: 'buy',
-      pair: 'BCALENDAR/BSV',
+      pair: 'BCAL/BSV',
       amount: 1000,
       price: 0.00024,
       total: 0.24,
@@ -90,7 +90,7 @@ const ExchangePage: React.FC<ExchangePageProps> = ({ isAuthenticated, currentUse
     {
       id: '2',
       type: 'sell',
-      pair: 'BCALENDAR/BSV',
+      pair: 'BCAL/BSV',
       amount: 500,
       price: 0.00023,
       total: 0.115,
@@ -100,7 +100,7 @@ const ExchangePage: React.FC<ExchangePageProps> = ({ isAuthenticated, currentUse
     {
       id: '3',
       type: 'buy',
-      pair: 'BCALENDAR/BSV',
+      pair: 'BCAL/BSV',
       amount: 2500,
       price: 0.00024,
       total: 0.60,
@@ -136,7 +136,7 @@ const ExchangePage: React.FC<ExchangePageProps> = ({ isAuthenticated, currentUse
     }
 
     const total = parseFloat(amount) * parseFloat(price);
-    alert(`${tradeType.toUpperCase()} order placed:\n${amount} BCALENDAR @ ${price} BSV\nTotal: ${total.toFixed(8)} BSV`);
+    alert(`${tradeType.toUpperCase()} order placed:\n${amount} BCAL @ ${price} BSV\nTotal: ${total.toFixed(8)} BSV`);
     
     setAmount('');
     setPrice('');
@@ -162,9 +162,9 @@ const ExchangePage: React.FC<ExchangePageProps> = ({ isAuthenticated, currentUse
         <div className="title-section">
           <DollarSign className="page-icon" size={32} />
           <div>
-            <h1 className="page-title">$BCALENDAR Exchange</h1>
+            <h1 className="page-title">$BCAL Exchange</h1>
             <p className="page-subtitle">
-              Trade $BCALENDAR tokens on Bitcoin SV blockchain
+              Trade $BCAL tokens and calendar NFT shares on Bitcoin SV
               <span className="status-live">🟢 LIVE</span>
             </p>
           </div>
@@ -234,7 +234,7 @@ const ExchangePage: React.FC<ExchangePageProps> = ({ isAuthenticated, currentUse
             </div>
 
             <div className="form-group">
-              <label>Amount (BCALENDAR)</label>
+              <label>Amount (BCAL)</label>
               <input
                 type="number"
                 value={amount}
@@ -272,7 +272,7 @@ const ExchangePage: React.FC<ExchangePageProps> = ({ isAuthenticated, currentUse
               ) : (
                 <>
                   <Zap size={16} />
-                  {tradeType === 'buy' ? 'BUY BCALENDAR' : 'SELL BCALENDAR'}
+                  {tradeType === 'buy' ? 'BUY BCAL' : 'SELL BCAL'}
                 </>
               )}
             </button>
@@ -280,7 +280,7 @@ const ExchangePage: React.FC<ExchangePageProps> = ({ isAuthenticated, currentUse
             {isAuthenticated && (
               <div className="wallet-info">
                 <div className="balance-item">
-                  <span>BCALENDAR Balance:</span>
+                  <span>BCAL Balance:</span>
                   <span>1,245.67890123</span>
                 </div>
                 <div className="balance-item">
@@ -298,7 +298,7 @@ const ExchangePage: React.FC<ExchangePageProps> = ({ isAuthenticated, currentUse
           <div className="orderbook">
             <div className="orderbook-header">
               <span>Price (BSV)</span>
-              <span>Amount (BCALENDAR)</span>
+              <span>Amount (BCAL)</span>
               <span>Total (BSV)</span>
             </div>
             

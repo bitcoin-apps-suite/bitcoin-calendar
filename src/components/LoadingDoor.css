@@ -44,9 +44,9 @@
 .bitcoin-logo {
   font-size: 80px;
   font-weight: bold;
-  color: #ff9500;
+  color: #a855f7;
   margin-bottom: 20px;
-  text-shadow: 0 0 30px rgba(255, 149, 0, 0.5);
+  text-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
   animation: pulse 1.5s ease-in-out infinite;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .bitcoin-text {
-  color: #ff9500;
+  color: #8b5cf6;
   font-weight: 300;
 }
 
@@ -83,9 +83,9 @@
 }
 
 .calendar-text {
-  color: #ff6b35;
+  color: #d946ef;
   font-weight: 200;
-  text-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+  text-shadow: 0 0 20px rgba(217, 70, 239, 0.4);
 }
 
 /* Vertical seam/handle on the right edge */
@@ -98,9 +98,9 @@
   height: 100%;
   background: linear-gradient(180deg, 
     transparent 0%, 
-    rgba(255, 149, 0, 0.3) 20%,
-    rgba(255, 149, 0, 0.5) 50%, 
-    rgba(255, 149, 0, 0.3) 80%,
+    rgba(168, 85, 247, 0.3) 20%,
+    rgba(168, 85, 247, 0.5) 50%, 
+    rgba(168, 85, 247, 0.3) 80%,
     transparent 100%
   );
 }
@@ -116,7 +116,7 @@
   background: radial-gradient(
     circle at center,
     transparent 0%,
-    rgba(255, 149, 0, 0.02) 50%,
+    rgba(168, 85, 247, 0.02) 50%,
     rgba(0, 0, 0, 0.3) 100%
   );
   pointer-events: none;
