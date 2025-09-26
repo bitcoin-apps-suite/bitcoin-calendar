@@ -46,7 +46,7 @@ import { BlockchainDocumentService, BlockchainDocument } from './services/Blockc
 import { HandCashService, HandCashUser } from './services/HandCashService';
 import { GoogleAuthProvider } from './components/GoogleAuth';
 import UnifiedAuth from './components/UnifiedAuth';
-import Taskbar from './components/Taskbar';
+import CleanTaskbar from './components/CleanTaskbar';
 import Dock from './components/Dock';
 import Footer from './components/Footer';
 import ProofOfConceptBanner from './components/ProofOfConceptBanner';
@@ -295,15 +295,15 @@ function App() {
             {!isMobile && !isInOS && <DevSidebar onCollapsedChange={setDevSidebarCollapsed} />}
             
             {/* Calendar taskbar - always visible */}
-            <Taskbar
+            <CleanTaskbar
               isAuthenticated={isAuthenticated}
               currentUser={currentUser}
               onLogout={handleLogout}
-              onNewEvent={() => {
+              onNewDocument={() => {
                 setCurrentDocument(null);
                 setShowExchange(false);
               }}
-              onSaveEvent={() => {
+              onSaveDocument={() => {
                 const saveBtn = document.querySelector('.save-btn-mobile, [title*="Save"]') as HTMLElement;
                 saveBtn?.click();
               }}
@@ -314,12 +314,6 @@ function App() {
                 window.dispatchEvent(new CustomEvent('openTwitterModal'));
               }}
               onToggleAIChat={() => setShowAIChat(!showAIChat)}
-              onImportCalendar={() => {
-                window.location.href = '/import';
-              }}
-              onExportCalendar={() => {
-                window.location.href = '/export';
-              }}
             />
             
             {/* Dock - always visible at bottom */}

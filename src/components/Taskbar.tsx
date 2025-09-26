@@ -327,13 +327,13 @@ const Taskbar: React.FC<TaskbarProps> = ({
       className="bitcoin-calendar-taskbar"
     >
       {/* Bitcoin Logo */}
-      <button 
+      <div 
         className="taskbar-logo"
-        onClick={() => window.location.href = '/'}
-        title="Bitcoin SV"
+        onDoubleClick={() => window.location.href = '/'}
+        title="Double-click to go home"
       >
-        <span style={{ fontSize: '16px', fontWeight: 'bold', color: '#eab308' }}>₿</span>
-      </button>
+        <span className="bitcoin-symbol">₿</span>
+      </div>
 
       {/* Mobile: Center title */}
       <button 
@@ -409,9 +409,9 @@ const Taskbar: React.FC<TaskbarProps> = ({
       </div>
 
       {/* Right side - App links */}
-      <div className="taskbar-links">
+      <div className="taskbar-status">
         <a 
-          href="https://github.com/TheBitcoinCorporation/bitcoin-calendar" 
+          href="https://github.com/bitcoin-apps-suite/bitcoin-calendar" 
           target="_blank" 
           rel="noopener noreferrer"
           className="taskbar-link"
@@ -436,11 +436,11 @@ const Taskbar: React.FC<TaskbarProps> = ({
           <FileText className="taskbar-link-icon" />
         </a>
         <a 
-          href="https://bitcoinapps.store" 
+          href="https://x.com/BitcoinCal_X" 
           target="_blank" 
           rel="noopener noreferrer"
           className="taskbar-link"
-          title="Bitcoin Apps Store"
+          title="Follow us on X"
         >
           <ExternalLink className="taskbar-link-icon" />
         </a>

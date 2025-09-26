@@ -13,10 +13,10 @@ const Footer: React.FC = () => {
         <div className="footer-section">
           <div className="footer-logo">
             <span className="bitcoin-symbol">₿</span>
-            <span className="app-name">Writer</span>
+            <span className="app-name">Calendar</span>
           </div>
           <p className="footer-tagline">
-            Decentralized document writing on Bitcoin SV
+            Decentralized calendar and event management on Bitcoin SV
           </p>
         </div>
 
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
           <h4>Community</h4>
           <ul>
             <li><a href="https://github.com/bitcoin-apps-suite/bitcoin-calendar" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-            <li><a href="https://twitter.com/bitcoin_writer" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+            <li><a href="https://twitter.com/bitcoin_calendar" target="_blank" rel="noopener noreferrer">Twitter</a></li>
             <li><a href="https://discord.gg/xBB8r8dj" target="_blank" rel="noopener noreferrer">Discord</a></li>
             <li><a href="/token">$BCAL Token</a></li>
           </ul>

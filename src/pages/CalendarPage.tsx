@@ -9,6 +9,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { Calendar, Plus, Download, Upload, Lock, Unlock, Share2, Clock } from 'lucide-react';
+import Footer from '../components/Footer';
 import './CalendarPage.css';
 
 interface CalendarEvent {
@@ -366,6 +367,8 @@ const CalendarPage: React.FC<CalendarPageProps> = ({ isAuthenticated, currentUse
           <div className="stat-label">Blockchain Status</div>
         </div>
       </div>
+      
+      <Footer />
     </div>
   );
 };
