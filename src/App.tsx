@@ -354,7 +354,7 @@ function App() {
       {/* Other Routes */}
       <Route path="/contributors" element={<BCalendarContributionsPage />} />
       <Route path="/nft" element={<NFTPage isAuthenticated={isAuthenticated} currentUser={currentUser} />} />
-      <Route path="/exchange" element={<ExchangePage isAuthenticated={isAuthenticated} currentUser={currentUser} />} />
+      <Route path="/exchange" element={<ExchangePage isAuthenticated={isAuthenticated} currentUser={currentUser} devSidebarCollapsed={devSidebarCollapsed} isMobile={isMobile} />} />
       <Route path="/decrypt" element={<DecryptPage isAuthenticated={isAuthenticated} currentUser={currentUser} />} />
       <Route path="/export" element={<ImportPage />} />
       <Route path="/" element={<CalendarPage isAuthenticated={isAuthenticated} currentUser={currentUser} devSidebarCollapsed={devSidebarCollapsed} isMobile={isMobile} />} />

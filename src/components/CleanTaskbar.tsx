@@ -64,7 +64,7 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
           window.location.href = '/';
         }},
         { divider: true },
-        { label: 'About Bitcoin Calendar', action: () => alert('Bitcoin Calendar v2.0\n\nDecentralized document writing on Bitcoin SV\n\n© 2025 The Bitcoin Corporation LTD\nRegistered in England and Wales • Company No. 16735102\nAll rights reserved\n\nBuilt with HandCash integration') },
+        { label: 'About Bitcoin Calendar', action: () => alert('Bitcoin Calendar v2.0\n\nSchedule and manage events on the Bitcoin blockchain\n\n© 2025 The Bitcoin Corporation LTD\nRegistered in England and Wales • Company No. 16735102\nAll rights reserved\n\nBuilt with HandCash integration') },
         { label: 'Features', action: () => {
           const event = new CustomEvent('showFeaturesPage');
           window.dispatchEvent(event);
@@ -82,22 +82,23 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
     {
       label: 'File',
       items: [
-        { label: 'New Document', shortcut: '⌘N', action: onNewDocument || (() => console.log('New')) },
-        { label: 'Open...', shortcut: '⌘O', action: () => console.log('Open') },
+        { label: 'New Event', shortcut: '⌘N', action: onNewDocument || (() => console.log('New')) },
+        { label: 'New Calendar', shortcut: '⌘⇧N', action: () => console.log('New Calendar') },
+        { label: 'Import Calendar...', shortcut: '⌘O', action: () => console.log('Import') },
         { label: 'Open Recent', action: () => console.log('Recent') },
         { divider: true },
         { label: 'Close', shortcut: '⌘W', action: () => console.log('Close') },
-        { label: 'Save', shortcut: '⌘S', action: onSaveDocument || (() => console.log('Save')) },
+        { label: 'Save Calendar', shortcut: '⌘S', action: onSaveDocument || (() => console.log('Save')) },
         { label: 'Save As...', shortcut: '⇧⌘S', action: () => console.log('Save As') },
         { label: 'Save to Blockchain', shortcut: '⌘B', action: () => {
           const event = new CustomEvent('openSaveToBlockchain');
           window.dispatchEvent(event);
         }},
         { divider: true },
-        { label: 'Import from Word', action: () => console.log('Import Word') },
-        { label: 'Export to PDF', action: () => console.log('Export PDF') },
-        { label: 'Export to Word', action: () => console.log('Export Word') },
-        { label: 'Export to HTML', action: () => console.log('Export HTML') }
+        { label: 'Import from iCal', action: () => console.log('Import iCal') },
+        { label: 'Import from Google Calendar', action: () => console.log('Import Google') },
+        { label: 'Export to iCal', action: () => console.log('Export iCal') },
+        { label: 'Export to CSV', action: () => console.log('Export CSV') }
       ]
     },
     {
@@ -130,22 +131,22 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
     {
       label: 'Blockchain',
       items: [
-        { label: 'Encrypt Document', shortcut: '⌘L', action: () => (document.querySelector('[title*="Encrypt"]') as HTMLElement)?.click() },
-        { label: 'Decrypt Document', action: () => (document.querySelector('[title*="Decrypt"]') as HTMLElement)?.click() },
+        { label: 'Encrypt Calendar', shortcut: '⌘L', action: () => (document.querySelector('[title*="Encrypt"]') as HTMLElement)?.click() },
+        { label: 'Decrypt Calendar', action: () => (document.querySelector('[title*="Decrypt"]') as HTMLElement)?.click() },
         { divider: true },
-        { label: 'Create NFT', action: onOpenTokenizeModal || (() => console.log('Tokenize')) },
-        { label: 'Issue File Shares', action: () => console.log('Issue shares') },
+        { label: 'Create Calendar NFT', action: onOpenTokenizeModal || (() => console.log('Tokenize')) },
+        { label: 'Issue Calendar Shares', action: () => console.log('Issue shares') },
         { divider: true },
-        { label: 'Set Paywall', action: () => (document.querySelector('[title*="Set price"]') as HTMLElement)?.click() },
-        { label: 'Set Timelock', action: () => console.log('Set timelock') },
-        { label: 'Set Multisig', action: () => console.log('Set multisig') },
+        { label: 'Set Event Paywall', action: () => (document.querySelector('[title*="Set price"]') as HTMLElement)?.click() },
+        { label: 'Set Event Timelock', action: () => console.log('Set timelock') },
+        { label: 'Set Calendar Multisig', action: () => console.log('Set multisig') },
         { divider: true },
-        { label: 'Exchange', action: () => {
-          const event = new CustomEvent('openDocumentExchange');
+        { label: '$BCAL Exchange', action: () => {
+          const event = new CustomEvent('openCalendarExchange');
           window.dispatchEvent(event);
         }},
         { divider: true },
-        { label: 'Publish to Chain', action: () => (document.querySelector('[title*="Publish"]') as HTMLElement)?.click() },
+        { label: 'Mint Calendar to Chain', action: () => (document.querySelector('[title*="Publish"]') as HTMLElement)?.click() },
         { label: 'View on Explorer', href: 'https://whatsonchain.com' }
       ]
     },
@@ -274,7 +275,7 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
     {
       label: 'Developers',
       items: [
-        { label: 'BAP Executive Summary', href: '/bitcoin-writer/bap' },
+        { label: 'BAP Executive Summary', href: '/bitcoin-calendar/bap' },
         { divider: true },
         { label: 'BSV SDK Docs', href: 'https://docs.bsvblockchain.org' },
         { label: 'HandCash SDK Docs', href: 'https://docs.handcash.io' },
@@ -305,11 +306,11 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
       items: [
         { label: 'AI Assistant', shortcut: '⌘⌥A', action: onToggleAIChat },
         { divider: true },
-        { label: 'Storage Calculator', action: () => setShowStorageCalc(true) },
-        { label: 'Create NFT', action: onOpenTokenizeModal },
-        { label: 'Post to Twitter', action: onOpenTwitterModal },
+        { label: 'Calendar Storage Calculator', action: () => setShowStorageCalc(true) },
+        { label: 'Create Calendar NFT', action: onOpenTokenizeModal },
+        { label: 'Share Calendar on X', action: onOpenTwitterModal },
         { divider: true },
-        { label: 'API Documentation', action: () => setShowAPIDoc(true) },
+        { label: 'Calendar API Docs', action: () => setShowAPIDoc(true) },
         { label: 'Keyboard Shortcuts', shortcut: '⌘/', action: () => setShowKeyboardShortcuts(true) }
       ]
     },
@@ -326,12 +327,12 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
       label: 'Help',
       items: [
         { label: 'Platform Overview', href: '/platform' },
-        { label: 'Bitcoin Calendar Help', shortcut: '⌘?', action: () => alert('Bitcoin Calendar v2.0\n\nWrite, encrypt, and store documents on the Bitcoin blockchain') },
+        { label: 'Bitcoin Calendar Help', shortcut: '⌘?', action: () => alert('Bitcoin Calendar v2.0\n\nSchedule, encrypt, and mint calendars on the Bitcoin blockchain') },
         { label: 'Keyboard Shortcuts', action: () => setShowKeyboardShortcuts(true) },
         { divider: true },
         { label: 'Sign Up for Updates', href: '/signup' },
         { label: 'Release Notes', href: '/releases' },
-        { label: 'What\'s New', action: () => alert('What\'s New in v2.0:\n\n• Multi-provider authentication\n• NFT tokenization\n• File shares\n• Twitter integration\n• Enhanced encryption') },
+        { label: 'What\'s New', action: () => alert('What\'s New in v2.0:\n\n• Calendar NFT minting\n• Event paywalls\n• Calendar shares trading\n• $BCAL Exchange integration\n• Enhanced encryption\n• Google Calendar import/export') },
         { divider: true },
         { label: 'Report an Issue', href: 'https://github.com/bitcoin-apps-suite/bitcoin-calendar/issues' },
         { label: 'Contact @b0ase', href: 'https://twitter.com/b0ase' },
@@ -397,11 +398,11 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
             padding: '0 20px 0 18px', // Shifted right to align with collapsed sidebar
             fontSize: '18px',
             fontWeight: 'bold',
-            color: '#ff9500',
+            color: '#8b5cf6',
             display: 'flex',
             alignItems: 'center',
             height: '32px',
-            background: showBitcoinSuite ? 'rgba(255, 149, 0, 0.1)' : 'transparent',
+            background: showBitcoinSuite ? 'rgba(139, 92, 246, 0.1)' : 'transparent',
             border: 'none',
             cursor: 'pointer',
             transition: 'background 0.15s ease'
@@ -437,7 +438,7 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
                 width: '100%',
                 padding: '8px 16px',
                 fontSize: '12px',
-                color: '#ff9500',
+                color: '#8b5cf6',
                 background: 'transparent',
                 border: 'none',
                 borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
@@ -447,7 +448,7 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
                 fontWeight: '600',
                 transition: 'background 0.15s ease'
               }}
-              onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255, 149, 0, 0.1)'}
+              onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(139, 92, 246, 0.1)'}
               onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
             >
               Bitcoin Apps
@@ -805,28 +806,28 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
                 </h3>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
                   <button onClick={() => { onNewDocument?.(); setShowMobileMenu(false); }} 
-                    style={{ padding: '12px', background: 'rgba(255, 149, 0, 0.1)', border: '1px solid rgba(255, 149, 0, 0.3)', borderRadius: '6px', color: '#fff', fontSize: '12px' }}>
+                    style={{ padding: '12px', background: 'rgba(139, 92, 246, 0.1)', border: '1px solid rgba(139, 92, 246, 0.3)', borderRadius: '6px', color: '#fff', fontSize: '12px' }}>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style={{marginRight: '6px'}}>
                       <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
                     </svg>
                     New
                   </button>
                   <button onClick={() => { onSaveDocument?.(); setShowMobileMenu(false); }} 
-                    style={{ padding: '12px', background: 'rgba(255, 149, 0, 0.1)', border: '1px solid rgba(255, 149, 0, 0.3)', borderRadius: '6px', color: '#fff', fontSize: '12px' }}>
+                    style={{ padding: '12px', background: 'rgba(139, 92, 246, 0.1)', border: '1px solid rgba(139, 92, 246, 0.3)', borderRadius: '6px', color: '#fff', fontSize: '12px' }}>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style={{marginRight: '6px'}}>
                       <path d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z"/>
                     </svg>
                     Save
                   </button>
                   <button onClick={() => { window.dispatchEvent(new CustomEvent('openDocumentExchange')); setShowMobileMenu(false); }} 
-                    style={{ padding: '12px', background: 'rgba(255, 149, 0, 0.1)', border: '1px solid rgba(255, 149, 0, 0.3)', borderRadius: '6px', color: '#fff', fontSize: '12px' }}>
+                    style={{ padding: '12px', background: 'rgba(139, 92, 246, 0.1)', border: '1px solid rgba(139, 92, 246, 0.3)', borderRadius: '6px', color: '#fff', fontSize: '12px' }}>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style={{marginRight: '6px'}}>
                       <path d="M12,16L16,12H13V8H11V12H8L12,16M16,20V18H8V20H16M16,2V4H8V2H16M20,6H4V18H20V6Z"/>
                     </svg>
                     Exchange
                   </button>
                   <button onClick={() => { onOpenTokenizeModal?.(); setShowMobileMenu(false); }} 
-                    style={{ padding: '12px', background: 'rgba(255, 149, 0, 0.1)', border: '1px solid rgba(255, 149, 0, 0.3)', borderRadius: '6px', color: '#fff', fontSize: '12px' }}>
+                    style={{ padding: '12px', background: 'rgba(139, 92, 246, 0.1)', border: '1px solid rgba(139, 92, 246, 0.3)', borderRadius: '6px', color: '#fff', fontSize: '12px' }}>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style={{marginRight: '6px'}}>
                       <path d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,11.56 18.94,12.11 18.84,12.65L20.95,14.76C21.58,15.39 22,16.31 22,17.38C22,19.92 19.92,22 17.38,22C16.31,22 15.39,21.58 14.76,20.95L12,18.21L9.24,20.95C8.61,21.58 7.69,22 6.62,22C4.08,22 2,19.92 2,17.38C2,16.31 2.42,15.39 3.05,14.76L5.16,12.65C5.06,12.11 5,11.56 5,11A7,7 0 0,1 12,4A7,7 0 0,1 19,11Z"/>
                     </svg>
@@ -843,7 +844,7 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
                     style={{
                       width: '100%',
                       padding: '10px',
-                      background: activeMenu === menu.label ? 'rgba(255, 149, 0, 0.1)' : 'rgba(255, 255, 255, 0.05)',
+                      background: activeMenu === menu.label ? 'rgba(139, 92, 246, 0.1)' : 'rgba(255, 255, 255, 0.05)',
                       border: '1px solid rgba(255, 255, 255, 0.1)',
                       borderRadius: '6px',
                       color: '#fff',
@@ -1031,10 +1032,10 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
             onClick={() => setShowMobileMenu(!showMobileMenu)}
             style={{
               padding: '6px 12px',
-              background: showMobileMenu ? 'rgba(255, 149, 0, 0.1)' : 'transparent',
-              border: '1px solid rgba(255, 149, 0, 0.3)',
+              background: showMobileMenu ? 'rgba(139, 92, 246, 0.1)' : 'transparent',
+              border: '1px solid rgba(139, 92, 246, 0.3)',
               borderRadius: '4px',
-              color: '#ff9500',
+              color: '#8b5cf6',
               fontSize: '13px',
               fontWeight: '600',
               cursor: 'pointer',

@@ -143,7 +143,7 @@ const CalendarPage: React.FC<CalendarPageProps> = ({ isAuthenticated, currentUse
             />
             <span style={{color: '#8b5cf6'}}>Bitcoin</span> Calendar
           </h1>
-          <p className="app-subtitle">Decentralized scheduling and event management on Bitcoin SV</p>
+          <p className="app-subtitle">Mint your calendar on the blockchain, charge for access, securitize its revenue flow and trade calendar shares on the $BCAL exchange</p>
         </div>
         
         {/* User info (top right) */}
@@ -172,15 +172,11 @@ const CalendarPage: React.FC<CalendarPageProps> = ({ isAuthenticated, currentUse
       
       <div className="calendar-header">
         <div className="calendar-title-section">
-          <Calendar className="calendar-icon" size={32} />
-          <div>
-            <h1 className="calendar-title">Bitcoin Calendar</h1>
-            <p className="calendar-subtitle">
-              Decentralized scheduling on Bitcoin SV • {events.length} events
-              {isAuthenticated && currentUser && (
-                <span className="user-info"> • Connected as ${currentUser.handle || 'User'}</span>
-              )}
-            </p>
+          <div style={{ fontSize: '14px', color: 'rgba(255, 255, 255, 0.7)' }}>
+            {events.length} events
+            {isAuthenticated && currentUser && (
+              <span className="user-info"> • Connected as ${currentUser.handle || 'User'}</span>
+            )}
           </div>
         </div>
 
