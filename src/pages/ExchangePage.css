@@ -1,0 +1,584 @@
+/* Exchange Page Styles */
+.exchange-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: #ffffff;
+  padding: 0;
+}
+
+.exchange-header {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  position: sticky;
+  top: 64px;
+  z-index: 100;
+}
+
+.title-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.page-icon {
+  color: #f39c12;
+  flex-shrink: 0;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(45deg, #f39c12, #e67e22);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 4px 0 0 0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-live {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.market-stats {
+  display: flex;
+  gap: 32px;
+}
+
+.stat-item {
+  text-align: right;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.change {
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.change.positive {
+  color: #30d158;
+}
+
+.change.negative {
+  color: #ff3b30;
+}
+
+.exchange-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  padding: 24px;
+  align-items: start;
+}
+
+/* Trading Section */
+.trading-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.pair-selector h3 {
+  margin: 0 0 16px 0;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.pair-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.pair-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.pair-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.pair-btn.active {
+  background: rgba(243, 156, 18, 0.1);
+  border-color: #f39c12;
+}
+
+.pair-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.pair-price {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2px;
+}
+
+.pair-change {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pair-change.positive {
+  color: #30d158;
+}
+
+.pair-change.negative {
+  color: #ff3b30;
+}
+
+.trade-form {
+  margin-top: 24px;
+}
+
+.trade-type-selector {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 4px;
+  margin-bottom: 20px;
+}
+
+.type-btn {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.type-btn.active.buy {
+  background: rgba(48, 209, 88, 0.2);
+  color: #30d158;
+}
+
+.type-btn.active.sell {
+  background: rgba(255, 59, 48, 0.2);
+  color: #ff3b30;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #f39c12;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.total-display {
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  font-size: 14px;
+}
+
+.trade-btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.trade-btn.buy {
+  background: linear-gradient(45deg, #30d158, #28c049);
+  color: white;
+}
+
+.trade-btn.sell {
+  background: linear-gradient(45deg, #ff3b30, #e62c1f);
+  color: white;
+}
+
+.trade-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.trade-btn:disabled {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.4);
+  cursor: not-allowed;
+}
+
+.wallet-info {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.balance-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.balance-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Order Book Section */
+.orderbook-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.orderbook-section h3 {
+  margin: 0 0 16px 0;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.orderbook {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+}
+
+.orderbook-header,
+.order-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 12px;
+}
+
+.orderbook-header {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 8px;
+}
+
+.order-row.sell .price {
+  color: #ff3b30;
+}
+
+.order-row.buy .price {
+  color: #30d158;
+}
+
+.order-row .amount,
+.order-row .total {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.spread-indicator {
+  margin: 12px 0;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  text-align: center;
+}
+
+.current-price {
+  font-size: 14px;
+  font-weight: 600;
+  color: #f39c12;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+}
+
+.spread {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-left: 8px;
+}
+
+/* Recent Trades Section */
+.trades-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-header h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.refresh-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.refresh-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.trades-list {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+}
+
+.trades-header,
+.trade-row {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr 1fr 1fr 1fr;
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 12px;
+}
+
+.trades-header {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 8px;
+}
+
+.trade-row .time {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.trade-row .type.buy {
+  color: #30d158;
+  font-weight: 600;
+}
+
+.trade-row .type.sell {
+  color: #ff3b30;
+  font-weight: 600;
+}
+
+.trade-row .amount,
+.trade-row .price,
+.trade-row .total {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Exchange Footer */
+.exchange-footer {
+  padding: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.market-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.info-icon {
+  color: #f39c12;
+  flex-shrink: 0;
+}
+
+.info-content {
+  flex: 1;
+}
+
+.info-title {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.info-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .exchange-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .trades-section {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .exchange-header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  .market-stats {
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .exchange-content {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .trading-section,
+  .orderbook-section,
+  .trades-section {
+    padding: 16px;
+  }
+
+  .orderbook-header,
+  .order-row {
+    font-size: 11px;
+    gap: 8px;
+  }
+
+  .trades-header,
+  .trade-row {
+    font-size: 11px;
+    gap: 8px;
+  }
+
+  .market-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dark scrollbar */
+.orderbook::-webkit-scrollbar,
+.trades-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.orderbook::-webkit-scrollbar-track,
+.trades-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.orderbook::-webkit-scrollbar-thumb,
+.trades-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.orderbook::-webkit-scrollbar-thumb:hover,
+.trades-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}

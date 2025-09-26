@@ -82,6 +82,12 @@
   font-weight: 200;
 }
 
+.calendar-text {
+  color: #ff6b35;
+  font-weight: 200;
+  text-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+}
+
 /* Vertical seam/handle on the right edge */
 .door-panel::after {
   content: '';

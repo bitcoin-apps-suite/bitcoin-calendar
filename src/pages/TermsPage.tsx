@@ -35,7 +35,7 @@ const TermsPage: React.FC = () => {
       <div className="terms-container">
         <div className="terms-header">
           <h1>Terms of Service</h1>
-          <p className="terms-update">Last Updated: January 26, 2025</p>
+          <p className="terms-update">Last Updated: September 26, 2025</p>
         </div>
 
         <div className="terms-content">

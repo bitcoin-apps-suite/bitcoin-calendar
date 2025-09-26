@@ -27,7 +27,7 @@ const ProofOfConceptBanner: React.FC = () => {
           <div className="poc-banner-text">
             <div className="poc-banner-message">
               <div className="poc-banner-line1">
-                <strong>PROOF OF CONCEPT:</strong> This is a demonstration version of Bitcoin Writer.
+                <strong>PROOF OF CONCEPT:</strong> This is a demonstration version of Bitcoin Calendar.
               </div>
               <div className="poc-banner-line2">
                 Production version coming soon™
@@ -58,15 +58,15 @@ const ProofOfConceptBanner: React.FC = () => {
 
         <span className="poc-banner-separator">•</span>
 
-        {/* $BWRITER Token Link */}
+        {/* $BCALENDAR Token Link */}
         <a href="/token" className="poc-banner-link poc-banner-token">
-          ₿Writer
+          ₿Calendar
         </a>
 
         <span className="poc-banner-separator">•</span>
 
         {/* Jobs Link */}
-        <a href="http://localhost:2010/contributions#tasks" className="poc-banner-link">
+        <a href="/contributions#tasks" className="poc-banner-link">
           <svg height="14" width="14" viewBox="0 0 24 24" fill="currentColor">
             <path d="M13.13 22.19l-1.63-3.83c-.11-.27-.4-.46-.7-.46h-1.6c-.3 0-.59.19-.7.46l-1.63 3.83c-.14.33.05.71.4.71h5.46c.35 0 .54-.38.4-.71zM5.64 12.5l-1.39 3.84c-.14.33.05.71.4.71h2.95c.3 0 .59-.19.7-.46l1.63-3.83c.14-.33-.05-.71-.4-.71H5.64zM18.36 12.5h-3.89c-.35 0-.54.38-.4.71l1.63 3.83c.11.27.4.46.7.46h2.95c.35 0 .54-.38.4-.71l-1.39-3.84zM12 2L8.5 8.5h7L12 2z"/>
           </svg>
@@ -77,7 +77,7 @@ const ProofOfConceptBanner: React.FC = () => {
         
         {/* GitHub Link */}
         <a
-          href="https://github.com/bitcoin-apps-suite/bitcoin-writer"
+          href="https://github.com/bitcoin-apps-suite/bitcoin-calendar"
           target="_blank"
           rel="noopener noreferrer"
           className="poc-banner-link"
@@ -92,7 +92,7 @@ const ProofOfConceptBanner: React.FC = () => {
         
         {/* Twitter Link */}
         <a
-          href="https://twitter.com/bitcoin_writer"
+          href="https://twitter.com/bitcoin_calendar"
           target="_blank"
           rel="noopener noreferrer"
           className="poc-banner-link"

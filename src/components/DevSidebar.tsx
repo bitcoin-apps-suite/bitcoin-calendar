@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
-  Code, 
+  Calendar, 
   GitBranch, 
   Bug, 
   FileText, 
@@ -15,7 +15,14 @@ import {
   Terminal,
   Activity,
   Flower2,
-  Wrench
+  Wrench,
+  Clock,
+  Download,
+  Upload,
+  Lock,
+  Unlock,
+  Shield,
+  Coins
 } from 'lucide-react';
 import './DevSidebar.css';
 
@@ -39,7 +46,7 @@ const DevSidebar: React.FC<DevSidebarProps> = ({ onCollapsedChange }) => {
 
   useEffect(() => {
     // Fetch GitHub issue count
-    fetch('https://api.github.com/repos/bitcoin-apps-suite/bitcoin-writer/issues?state=open')
+    fetch('https://api.github.com/repos/bitcoin-apps-suite/bitcoin-calendar/issues?state=open')
       .then(res => res.json())
       .then(issues => setIssueCount(Array.isArray(issues) ? issues.length : 0))
       .catch(() => setIssueCount(0));
@@ -54,45 +61,45 @@ const DevSidebar: React.FC<DevSidebarProps> = ({ onCollapsedChange }) => {
     section?: string;
     external?: boolean;
   }> = [
-    // Token & Grants at top
-    { path: '/token', icon: DollarSign, label: '$BWRITER', badge: 'NEW' },
-    { path: '/grants', icon: Flower2, label: 'GRANTS' },
-    { path: '/maip', icon: Users, label: 'MAIP', badge: 'EXPERIMENTAL' },
+    // Token & NFT at top
+    { path: '/token', icon: Coins, label: '$BCALENDAR', badge: 'NEW' },
+    { path: '/nft', icon: Package, label: 'CALENDAR NFT', badge: 'MINT' },
+    { path: '/exchange', icon: DollarSign, label: 'EXCHANGE' },
     
-    // Authors Section
+    // Calendar Operations
     { divider: true },
-    { section: 'AUTHORS' },
-    { path: '/author/offer', icon: FileText, label: 'Create Writing Offer' },
-    { path: '/publisher/offers', icon: Package, label: 'Find Publishers', badge: '6' },
-    { path: '/docs', icon: BookOpen, label: 'Writing Guides' },
+    { section: 'CALENDAR' },
+    { path: '/import', icon: Download, label: 'Import Calendar' },
+    { path: '/export', icon: Upload, label: 'Export Calendar' },
+    { path: '/encrypt', icon: Lock, label: 'Encrypt Events' },
+    { path: '/decrypt', icon: Unlock, label: 'Decrypt Events' },
     
-    // Publishers Section
+    // Collaboration
     { divider: true },
-    { section: 'PUBLISHERS' },
-    { path: '/publisher/offer', icon: DollarSign, label: 'Commission Work' },
-    { path: '/author/offers', icon: Users, label: 'Find Talent', badge: '12' },
-    { path: '/enterprise', icon: Wrench, label: 'Custom Platform' },
+    { section: 'COLLABORATION' },
+    { path: '/tasks', icon: Clock, label: 'Task Manager' },
+    { path: '/contributors', icon: Users, label: 'Contributors', badge: '2' },
+    { path: '/docs', icon: BookOpen, label: 'Calendar Guides' },
     
-    // Developers Section
+    // Developers
     { divider: true },
     { section: 'DEVELOPERS' },
-    { path: '/developer/offer', icon: Zap, label: 'Create Service Offer' },
-    { path: '/contracts', icon: Terminal, label: 'Find Work', badge: issueCount > 0 ? String(issueCount) : '0' },
-    { path: '/contributions', icon: Users, label: 'Contributors', badge: '2' },
+    { path: '/contracts', icon: Terminal, label: 'Smart Contracts', badge: issueCount > 0 ? String(issueCount) : '0' },
+    { path: '/api', icon: Package, label: 'API Reference' },
+    { path: 'https://github.com/bitcoin-apps-suite/bitcoin-calendar', icon: GitBranch, label: 'GitHub', external: true },
     
     // System
     { divider: true },
-    { path: '/api', icon: Package, label: 'API Reference' },
-    { path: 'https://github.com/bitcoin-apps-suite/bitcoin-writer', icon: GitBranch, label: 'GitHub', external: true },
     { path: '/changelog', icon: FileText, label: 'Changelog' },
     { path: '/status', icon: Activity, label: 'Status', badge: 'OK' }
   ];
 
   const stats = {
     totalTokens: '1,000,000,000',
-    distributed: '650,000',
+    distributed: '850,000',
     contributors: '2',
-    openTasks: '30+'
+    openEvents: '150+',
+    calendarNFTs: '45'
   };
 
   return (
@@ -100,8 +107,8 @@ const DevSidebar: React.FC<DevSidebarProps> = ({ onCollapsedChange }) => {
       <div className="dev-sidebar-header">
         {!isCollapsed && (
           <div className="dev-sidebar-title">
-            <Zap className="dev-sidebar-logo" />
-            <span>Contracts Hub</span>
+            <Calendar className="dev-sidebar-logo" />
+            <span>Calendar Hub</span>
           </div>
         )}
         <button 

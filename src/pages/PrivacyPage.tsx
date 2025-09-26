@@ -28,7 +28,7 @@ const PrivacyPage: React.FC = () => {
     };
   }, []);
 
-  const lastUpdated = "January 26, 2025";
+  const lastUpdated = "September 26, 2025";
 
   return (
     <div className={`legal-page ${!isMobile ? (devSidebarCollapsed ? 'with-sidebar-collapsed' : 'with-sidebar-expanded') : ''}`}>

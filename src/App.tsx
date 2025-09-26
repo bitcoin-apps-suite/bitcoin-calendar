@@ -8,7 +8,11 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import FeaturesPage from './pages/FeaturesPage';
 import TokenPage from './pages/TokenPage';
-import BWriterContributionsPage from './pages/BWriterContributionsPage';
+import BCalendarContributionsPage from './pages/BCalendarContributionsPage';
+import CalendarPage from './pages/CalendarPage';
+import NFTPage from './pages/NFTPage';
+import ExchangePage from './pages/ExchangePage';
+import DecryptPage from './pages/DecryptPage';
 import DocsPage from './pages/DocsPage';
 import TasksPage from './pages/TasksPage';
 import ContractsPage from './pages/ContractsPage';
@@ -42,7 +46,8 @@ import { BlockchainDocumentService, BlockchainDocument } from './services/Blockc
 import { HandCashService, HandCashUser } from './services/HandCashService';
 import { GoogleAuthProvider } from './components/GoogleAuth';
 import UnifiedAuth from './components/UnifiedAuth';
-import CleanTaskbar from './components/CleanTaskbar';
+import Taskbar from './components/Taskbar';
+import Dock from './components/Dock';
 import Footer from './components/Footer';
 import ProofOfConceptBanner from './components/ProofOfConceptBanner';
 import DevSidebar from './components/DevSidebar';
@@ -289,16 +294,16 @@ function App() {
             {/* Developer Sidebar - Desktop Only */}
             {!isMobile && !isInOS && <DevSidebar onCollapsedChange={setDevSidebarCollapsed} />}
             
-            {/* Clean taskbar with proper spacing */}
-            {!isInOS && <CleanTaskbar
+            {/* Calendar taskbar - always visible */}
+            <Taskbar
               isAuthenticated={isAuthenticated}
               currentUser={currentUser}
               onLogout={handleLogout}
-              onNewDocument={() => {
+              onNewEvent={() => {
                 setCurrentDocument(null);
                 setShowExchange(false);
               }}
-              onSaveDocument={() => {
+              onSaveEvent={() => {
                 const saveBtn = document.querySelector('.save-btn-mobile, [title*="Save"]') as HTMLElement;
                 saveBtn?.click();
               }}
@@ -308,9 +313,17 @@ function App() {
               onOpenTwitterModal={() => {
                 window.dispatchEvent(new CustomEvent('openTwitterModal'));
               }}
-              documentService={documentService}
               onToggleAIChat={() => setShowAIChat(!showAIChat)}
-            />}
+              onImportCalendar={() => {
+                window.location.href = '/import';
+              }}
+              onExportCalendar={() => {
+                window.location.href = '/export';
+              }}
+            />
+            
+            {/* Dock - always visible at bottom */}
+            <Dock />
           </>
         )}
 
@@ -345,7 +358,12 @@ function App() {
       <Route path="/publishers/grants" element={<PublishersGrantsPage />} />
       
       {/* Other Routes */}
-      <Route path="/contributions" element={<BWriterContributionsPage />} />
+      <Route path="/contributors" element={<BCalendarContributionsPage />} />
+      <Route path="/nft" element={<NFTPage isAuthenticated={isAuthenticated} currentUser={currentUser} />} />
+      <Route path="/exchange" element={<ExchangePage isAuthenticated={isAuthenticated} currentUser={currentUser} />} />
+      <Route path="/decrypt" element={<DecryptPage isAuthenticated={isAuthenticated} currentUser={currentUser} />} />
+      <Route path="/export" element={<ImportPage />} />
+      <Route path="/" element={<CalendarPage isAuthenticated={isAuthenticated} currentUser={currentUser} />} />
       <Route path="/docs" element={<DocsPage />} />
       <Route path="/enterprise" element={<CommissionsPage />} />
       <Route path="/grants" element={<GrantsPage />} />

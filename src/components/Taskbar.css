@@ -1,18 +1,18 @@
-/* Bitcoin Writer Taskbar - Professional macOS Style */
-.bitcoin-writer-taskbar {
+/* Bitcoin Calendar Taskbar - Unified Bitcoin OS Style */
+.bitcoin-calendar-taskbar {
   display: flex;
   align-items: center;
-  height: 22px;
-  background: rgba(22, 22, 22, 0.95);
+  height: 28px;
+  background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 12px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.9);
   user-select: none;
   position: fixed;
-  top: 0;
+  top: 40px; /* Position below POC bar */
   left: 0;
   right: 0;
   z-index: 10000;
@@ -20,10 +20,29 @@
 }
 
 .taskbar-logo {
-  padding: 0 8px;
+  padding: 0 12px;
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  color: #f59e0b;
+}
+
+.taskbar-logo:hover {
+  background: rgba(245, 158, 11, 0.1);
+}
+
+
+/* Dividers */
+.taskbar-divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 8px;
 }
 
 .bitcoin-symbol {
@@ -37,6 +56,7 @@
   display: flex;
   align-items: center;
   height: 100%;
+  margin-left: 8px;
 }
 
 .menu-container {
@@ -45,19 +65,20 @@
 }
 
 .menu-button {
-  padding: 0 8px;
-  height: 100%;
+  padding: 0 10px;
+  height: 20px;
   background: transparent;
   border: none;
   color: rgba(255, 255, 255, 0.85);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 400;
-  cursor: default;
+  cursor: pointer;
   font-family: inherit;
-  transition: background 0.05s ease;
+  transition: background 0.15s ease;
   white-space: nowrap;
   display: flex;
   align-items: center;
+  border-radius: 4px;
 }
 
 .menu-button:hover {
@@ -69,19 +90,20 @@
   color: #ffffff;
 }
 
-/* TIGHT PROFESSIONAL DROPDOWN */
+/* DROPDOWN MENU */
 .dropdown-menu {
   position: absolute;
-  top: 22px;
+  top: 100%;
   left: 0;
-  min-width: 200px;
-  background: rgba(36, 36, 36, 0.98);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 0.5px solid rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-  padding: 3px 0;
+  margin-top: 4px;
+  min-width: 220px;
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+  padding: 8px 0;
 }
 
 /* CLEAN MENU ITEMS WITH SMALL FONT */
@@ -153,33 +175,56 @@
   margin: 3px 0;
 }
 
-/* RIGHT SIDE STATUS */
-.taskbar-status {
+/* RIGHT SIDE LINKS */
+.taskbar-links {
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding-right: 10px;
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.6);
+  gap: 12px;
+  padding-right: 16px;
   height: 100%;
 }
 
-.status-text {
+.taskbar-link {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.taskbar-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.taskbar-link-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.taskbar-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.taskbar-user-text {
+  font-size: 11px;
   font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .status-indicator {
-  font-size: 6px;
+  font-size: 8px;
 }
 
 .status-indicator.connected {
-  color: #30d158;
-}
-
-.status-indicator.disconnected {
-  color: #ff3b30;
-  opacity: 0.6;
+  color: #10b981;
 }
 
 .twitter-link {
@@ -202,9 +247,13 @@
 
 /* Mobile responsive - show mobile version */
 @media (max-width: 768px) {
-  .bitcoin-writer-taskbar {
+  .bitcoin-calendar-taskbar {
     display: flex;
     justify-content: space-between;
+  }
+  
+  .taskbar-divider {
+    display: none;
   }
   
   .taskbar-menus {
@@ -248,7 +297,7 @@
   
   .mobile-menu-overlay {
     position: fixed;
-    top: 22px;
+    top: 68px; /* Account for POC bar (40px) + taskbar (28px) */
     left: 0;
     right: 0;
     bottom: 0;
@@ -273,7 +322,7 @@
   .mobile-menu-header {
     padding: 12px;
     background: rgba(255, 255, 255, 0.05);
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 400;
     color: #ffffff;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -287,7 +336,7 @@
     background: transparent;
     border: none;
     color: #ffffff;
-    font-size: 13px;
+    font-size: 11px;
     cursor: pointer;
     border-radius: 4px;
     transition: background 0.15s ease;
@@ -298,7 +347,7 @@
     background: rgba(255, 153, 0, 0.2);
   }
   
-  .taskbar-status {
+  .taskbar-links {
     display: none;
   }
 }

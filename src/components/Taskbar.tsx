@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Github, BookOpen, FileText, ExternalLink } from 'lucide-react';
 import './Taskbar.css';
 
 interface DropdownItem {
@@ -19,30 +20,35 @@ interface TaskbarProps {
   isAuthenticated: boolean;
   currentUser: any;
   onLogout: () => void;
-  onNewDocument?: () => void;
-  onSaveDocument?: () => void;
+  onNewEvent?: () => void;
+  onSaveEvent?: () => void;
   onOpenTokenizeModal?: () => void;
   onOpenTwitterModal?: () => void;
   onToggleAIChat?: () => void;
+  onImportCalendar?: () => void;
+  onExportCalendar?: () => void;
 }
 
 const Taskbar: React.FC<TaskbarProps> = ({
   isAuthenticated,
   currentUser,
   onLogout,
-  onNewDocument,
-  onSaveDocument,
+  onNewEvent,
+  onSaveEvent,
   onOpenTokenizeModal,
   onOpenTwitterModal,
-  onToggleAIChat
+  onToggleAIChat,
+  onImportCalendar,
+  onExportCalendar
 }) => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
+
   const menus: DropdownMenu[] = [
     {
-      label: 'Bitcoin Writer',
+      label: 'Bitcoin Calendar',
       items: [
         { 
           label: 'Home', 
@@ -51,8 +57,8 @@ const Taskbar: React.FC<TaskbarProps> = ({
         },
         { divider: true },
         { 
-          label: 'About Bitcoin Writer', 
-          action: () => alert('Bitcoin Writer v2.0\n\nDecentralized document writing on Bitcoin SV\n\n© 2025 The Bitcoin Corporation LTD\nRegistered in England and Wales • Company No. 16735102\n\nBuilt with HandCash integration') 
+          label: 'About Bitcoin Calendar', 
+          action: () => alert('Bitcoin Calendar v2.0\n\nDecentralized calendar and scheduling on Bitcoin SV\n\n© 2025 The Bitcoin Corporation LTD\nRegistered in England and Wales • Company No. 16735102\n\nBuilt with HandCash integration') 
         },
         { divider: true },
         { 
@@ -62,7 +68,7 @@ const Taskbar: React.FC<TaskbarProps> = ({
         },
         { divider: true },
         { 
-          label: 'Hide Bitcoin Writer', 
+          label: 'Hide Bitcoin Calendar', 
           shortcut: '⌘H', 
           action: () => console.log('Hide') 
         },
@@ -90,34 +96,34 @@ const Taskbar: React.FC<TaskbarProps> = ({
       label: 'File',
       items: [
         { 
-          label: 'New Document', 
+          label: 'New Event', 
           shortcut: '⌘N', 
-          action: onNewDocument 
+          action: onNewEvent 
         },
         { 
-          label: 'Open...', 
+          label: 'Import Calendar...', 
           shortcut: '⌘O', 
-          action: () => alert('Open functionality coming soon') 
+          action: onImportCalendar 
         },
         { divider: true },
         { 
-          label: 'Save', 
+          label: 'Save Event', 
           shortcut: '⌘S', 
-          action: onSaveDocument 
+          action: onSaveEvent 
         },
         { 
-          label: 'Save As...', 
+          label: 'Export Calendar...', 
           shortcut: '⇧⌘S', 
-          action: () => alert('Save As functionality coming soon') 
+          action: onExportCalendar 
         },
         { divider: true },
         { 
-          label: 'Export as PDF', 
-          action: () => console.log('Export PDF') 
+          label: 'Export as iCal', 
+          action: () => console.log('Export iCal') 
         },
         { 
-          label: 'Export as Word', 
-          action: () => console.log('Export Word') 
+          label: 'Export as CSV', 
+          action: () => console.log('Export CSV') 
         },
         { divider: true },
         { 
@@ -205,25 +211,25 @@ const Taskbar: React.FC<TaskbarProps> = ({
         },
         { divider: true },
         { 
-          label: 'Save to Blockchain', 
-          action: () => console.log('Save to blockchain') 
+          label: 'Save Calendar to Blockchain', 
+          action: () => console.log('Save calendar to blockchain') 
         },
         { 
-          label: 'Encrypt Document', 
+          label: 'Encrypt Calendar', 
           action: () => (document.querySelector('[title*="Encrypt"]') as HTMLElement)?.click() 
         },
         { divider: true },
         { 
-          label: 'Create NFT', 
+          label: 'Create Calendar NFT', 
           action: onOpenTokenizeModal 
         },
         { 
-          label: 'Set Paywall', 
+          label: 'Set Event Paywall', 
           action: () => (document.querySelector('[title*="Set price"]') as HTMLElement)?.click() 
         },
         { divider: true },
         { 
-          label: 'Post to Twitter', 
+          label: 'Share Event on Twitter', 
           action: onOpenTwitterModal 
         }
       ]
@@ -277,18 +283,19 @@ const Taskbar: React.FC<TaskbarProps> = ({
       label: 'Help',
       items: [
         { 
-          label: 'Bitcoin Writer Help', 
+          label: 'Bitcoin Calendar Help', 
           shortcut: '⌘?', 
-          action: () => alert('Bitcoin Writer v2.0\n\nWrite, encrypt, and store documents on the Bitcoin blockchain') 
+          action: () => alert('Bitcoin Calendar v2.0\n\nSchedule, encrypt, and store events on the Bitcoin blockchain') 
         },
         { divider: true },
         { 
           label: 'Report an Issue', 
-          href: 'https://github.com/bitcoin-apps-suite/bitcoin-writer/issues' 
+          href: 'https://github.com/bitcoin-apps-suite/bitcoin-calendar/issues' 
         }
       ]
     }
   ];
+
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -317,16 +324,16 @@ const Taskbar: React.FC<TaskbarProps> = ({
   return (
     <div 
       ref={menuRef}
-      className="bitcoin-writer-taskbar"
+      className="bitcoin-calendar-taskbar"
     >
       {/* Bitcoin Logo */}
-      <div 
+      <button 
         className="taskbar-logo"
-        onDoubleClick={() => window.location.href = '/'}
-        title="Double-click to go home"
+        onClick={() => window.location.href = '/'}
+        title="Bitcoin SV"
       >
-        <span className="bitcoin-symbol">₿</span>
-      </div>
+        <span style={{ fontSize: '16px', fontWeight: 'bold', color: '#eab308' }}>₿</span>
+      </button>
 
       {/* Mobile: Center title */}
       <button 
@@ -335,13 +342,13 @@ const Taskbar: React.FC<TaskbarProps> = ({
           // Navigate to home
           window.location.href = '/';
         }}
-        title="Bitcoin Writer - Tap to go home"
+        title="Bitcoin Calendar - Tap to go home"
       >
         <span className="bitcoin-symbol">₿</span>
-        <span>Bitcoin Writer</span>
+        <span>Bitcoin Calendar</span>
       </button>
 
-      {/* Menu Items */}
+      {/* Menu Items - After Logo */}
       <div className="taskbar-menus">
         {menus.map((menu) => (
           <div key={menu.label} className="menu-container">
@@ -401,32 +408,50 @@ const Taskbar: React.FC<TaskbarProps> = ({
         ))}
       </div>
 
-      {/* Right side - Status items */}
-      <div className="taskbar-status">
-        {isAuthenticated && currentUser ? (
-          <>
-            <span className="status-text">
+      {/* Right side - App links */}
+      <div className="taskbar-links">
+        <a 
+          href="https://github.com/TheBitcoinCorporation/bitcoin-calendar" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="taskbar-link"
+          title="GitHub"
+        >
+          <Github className="taskbar-link-icon" />
+        </a>
+        <a 
+          href="https://docs.bitcoinapps.store/calendar" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="taskbar-link"
+          title="Documentation"
+        >
+          <BookOpen className="taskbar-link-icon" />
+        </a>
+        <a 
+          href="/changelog" 
+          className="taskbar-link"
+          title="Changelog"
+        >
+          <FileText className="taskbar-link-icon" />
+        </a>
+        <a 
+          href="https://bitcoinapps.store" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="taskbar-link"
+          title="Bitcoin Apps Store"
+        >
+          <ExternalLink className="taskbar-link-icon" />
+        </a>
+        {isAuthenticated && currentUser && (
+          <div className="taskbar-user">
+            <span className="taskbar-user-text">
               {currentUser.handle ? `$${currentUser.handle}` : 'Connected'}
             </span>
             <span className="status-indicator connected">●</span>
-          </>
-        ) : (
-          <>
-            <span className="status-text">Not Connected</span>
-            <span className="status-indicator disconnected">●</span>
-          </>
+          </div>
         )}
-        <a 
-          href="https://x.com/bitcoin_writer" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="twitter-link"
-          aria-label="Follow on X"
-        >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-          </svg>
-        </a>
       </div>
 
       {/* Mobile Menu Button */}

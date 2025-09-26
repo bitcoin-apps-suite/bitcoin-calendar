@@ -36,10 +36,10 @@ const LoadingDoor: React.FC<LoadingDoorProps> = ({ onComplete }) => {
       {/* Single sliding door */}
       <div className="door-panel">
         <div className="door-content">
-          <div className="bitcoin-logo">₿</div>
+          <div className="bitcoin-logo">📅</div>
           <h1 className="door-title">
             <span className="bitcoin-text">Bitcoin</span>
-            <span className="writer-text">Writer</span>
+            <span className="calendar-text">Calendar</span>
           </h1>
         </div>
       </div>

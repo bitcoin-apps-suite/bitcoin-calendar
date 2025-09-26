@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import GoogleAuthButton from './GoogleAuth';
 import { HandCashService } from '../services/HandCashService';
 import AuthModal from './AuthModal';
+import HandCashMagicAuth from './HandCashMagicAuth';
 import './UnifiedAuth.css';
 
 interface UnifiedAuthProps {
@@ -26,6 +27,7 @@ const UnifiedAuth: React.FC<UnifiedAuthProps> = ({
 }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
+  const [showHandCashModal, setShowHandCashModal] = useState(false);
   const [twitterUser, setTwitterUser] = useState<any>(null);
   const [showSubstackModal, setShowSubstackModal] = useState(false);
 
@@ -122,6 +124,17 @@ const UnifiedAuth: React.FC<UnifiedAuthProps> = ({
     setShowDropdown(false);
   };
 
+  const handleHandCashMagicAuthComplete = (user: any) => {
+    console.log('HandCash Magic Auth completed:', user);
+    setShowHandCashModal(false);
+    setShowAuthModal(false);
+    // Trigger a page reload to update the authentication state
+    // This ensures the main App component recognizes the new authentication
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  };
+
   // If no auth at all, show single sign in button
   if (!hasGoogle && !hasHandCash && !hasTwitter) {
     return (
@@ -135,7 +148,7 @@ const UnifiedAuth: React.FC<UnifiedAuthProps> = ({
         
         <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)}>
               <div className="auth-modal-header">
-                <h2>Connect to Bitcoin Writer</h2>
+                <h2>Connect to Bitcoin Calendar</h2>
                 <button className="modal-close" onClick={() => setShowAuthModal(false)}>×</button>
               </div>
               
@@ -153,18 +166,35 @@ const UnifiedAuth: React.FC<UnifiedAuthProps> = ({
                     />
                   </div>
                   
-                  <button 
-                    className="handcash-login-btn full-width"
-                    onClick={() => {
-                      if (onHandCashLogin) {
-                        onHandCashLogin();
-                      }
-                      setShowAuthModal(false);
-                    }}
-                  >
-                    <img src="https://handcash.io/favicon.ico" alt="HandCash" style={{ width: '20px', height: '20px', marginRight: '8px' }} />
-                    Connect HandCash Wallet
-                  </button>
+                  <div className="handcash-auth-options">
+                    <button 
+                      className="handcash-login-btn full-width"
+                      onClick={() => {
+                        if (onHandCashLogin) {
+                          onHandCashLogin();
+                        }
+                        setShowAuthModal(false);
+                      }}
+                    >
+                      <img src="https://handcash.io/favicon.ico" alt="HandCash" style={{ width: '20px', height: '20px', marginRight: '8px' }} />
+                      Connect with HandCash OAuth
+                    </button>
+                    
+                    <button 
+                      className="handcash-magic-btn full-width"
+                      onClick={() => {
+                        setShowHandCashModal(true);
+                      }}
+                      style={{
+                        marginTop: '8px',
+                        backgroundColor: '#2a2a2a',
+                        border: '1px solid #444',
+                        color: '#fff'
+                      }}
+                    >
+                      🪄 Use HandCash Magic Link
+                    </button>
+                  </div>
                   
                   <button 
                     className="twitter-login-btn full-width"
@@ -196,7 +226,7 @@ const UnifiedAuth: React.FC<UnifiedAuthProps> = ({
                 <div className="auth-benefits">
                   <h3>Why connect?</h3>
                   <p className="simple-explanation">
-                    Bitcoin Writer allows you to write documents directly on the blockchain, encrypt, timelock, publish, charge for access, post to Twitter and Substack, and backup to Google Drive or send via Gmail. Connect your HandCash wallet to receive payments, tokenize your documents and issue dividend bearing shares in the revenue they generate that can be independently traded on decentralized exchanges. Subscribe to top-up with monthly bitcoin straight to your HandCash wallet or directly to your Bitcoin Writer wallet.
+                    Bitcoin Calendar allows you to create and manage calendar events directly on the blockchain, encrypt and timelock events, charge for access to premium calendar content, and monetize your scheduling services. Connect your HandCash wallet to receive payments, tokenize your calendar events, and issue dividend bearing shares in the revenue they generate that can be independently traded on decentralized exchanges. Subscribe to top-up with monthly bitcoin straight to your HandCash wallet or directly to your Bitcoin Calendar wallet.
                   </p>
                   
                   {!process.env.REACT_APP_GOOGLE_CLIENT_ID || process.env.REACT_APP_GOOGLE_CLIENT_ID === 'YOUR_GOOGLE_CLIENT_ID_HERE' ? (
@@ -373,18 +403,35 @@ const UnifiedAuth: React.FC<UnifiedAuthProps> = ({
                     </button>
                   </div>
                 ) : (
-                  <button 
-                    className="handcash-login-btn full-width"
-                    onClick={() => {
-                      if (onHandCashLogin) {
-                        onHandCashLogin();
-                      }
-                      setShowAuthModal(false);
-                    }}
-                  >
-                    <img src="https://handcash.io/favicon.ico" alt="HandCash" style={{ width: '20px', height: '20px', marginRight: '8px' }} />
-                    Connect HandCash Wallet
-                  </button>
+                  <div className="handcash-auth-options">
+                    <button 
+                      className="handcash-login-btn full-width"
+                      onClick={() => {
+                        if (onHandCashLogin) {
+                          onHandCashLogin();
+                        }
+                        setShowAuthModal(false);
+                      }}
+                    >
+                      <img src="https://handcash.io/favicon.ico" alt="HandCash" style={{ width: '20px', height: '20px', marginRight: '8px' }} />
+                      Connect with HandCash OAuth
+                    </button>
+                    
+                    <button 
+                      className="handcash-magic-btn full-width"
+                      onClick={() => {
+                        setShowHandCashModal(true);
+                      }}
+                      style={{
+                        marginTop: '8px',
+                        backgroundColor: '#2a2a2a',
+                        border: '1px solid #444',
+                        color: '#fff'
+                      }}
+                    >
+                      🪄 Use HandCash Magic Link
+                    </button>
+                  </div>
                 )}
                 
                 {hasTwitter ? (
@@ -437,7 +484,7 @@ const UnifiedAuth: React.FC<UnifiedAuthProps> = ({
               <div className="auth-benefits">
                 <h3>Why connect?</h3>
                 <p className="simple-explanation">
-                  Bitcoin Writer allows you to write documents directly on the blockchain, encrypt, timelock, publish, charge for access, post to Twitter and Substack, and backup to Google Drive or send via Gmail. Connect your HandCash wallet to receive payments, tokenize your documents and issue dividend bearing shares in the revenue they generate that can be independently traded on decentralized exchanges. Subscribe to top-up with monthly bitcoin straight to your HandCash wallet or directly to your Bitcoin Writer wallet.
+                  Bitcoin Calendar allows you to create and manage calendar events directly on the blockchain, encrypt and timelock events, charge for access to premium calendar content, and monetize your scheduling services. Connect your HandCash wallet to receive payments, tokenize your calendar events, and issue dividend bearing shares in the revenue they generate that can be independently traded on decentralized exchanges. Subscribe to top-up with monthly bitcoin straight to your HandCash wallet or directly to your Bitcoin Calendar wallet.
                 </p>
                 
                 <div className="topup-buttons-section">
@@ -507,6 +554,14 @@ const UnifiedAuth: React.FC<UnifiedAuthProps> = ({
           </div>
         </>,
         document.body
+      )}
+      
+      {/* HandCash Magic Auth Modal */}
+      {showHandCashModal && (
+        <HandCashMagicAuth
+          onAuthComplete={handleHandCashMagicAuthComplete}
+          onClose={() => setShowHandCashModal(false)}
+        />
       )}
     </div>
   );

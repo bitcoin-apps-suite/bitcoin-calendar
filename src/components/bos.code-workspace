@@ -32,6 +32,9 @@
 		},
 		{
 			"path": "../../../trademarks"
+		},
+		{
+			"path": "../../../bitcoin-calendar"
 		}
 	],
 	"settings": {}

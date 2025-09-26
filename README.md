@@ -1,15 +1,15 @@
-# Bitcoin Writer - Blockchain Writing App
+# Bitcoin Calendar - Blockchain Calendar App
 
-A decentralized writing application built on Bitcoin SV blockchain with HandCash authentication. Your documents are encrypted and stored on the blockchain, accessible only with your HandCash login.
+A decentralized calendar application built on Bitcoin SV blockchain with HandCash authentication. Your events and schedules are encrypted and stored on the blockchain, accessible only with your HandCash login.
 
 ## Features
 
-- 🔒 **Encrypted Storage**: All documents are encrypted before being stored on the blockchain
+- 🔒 **Encrypted Storage**: All calendar events are encrypted before being stored on the blockchain
 - 🔑 **HandCash Authentication**: Secure login with your HandCash wallet
-- 🌐 **Access Anywhere**: Your documents are available from any device with your HandCash login
-- 💎 **Permanent Storage**: Built on Bitcoin SV for immutable document storage
-- ✍️ **Rich Editor**: Distraction-free writing with image support
-- 💾 **Auto-save**: Automatic saving of your work
+- 🌐 **Access Anywhere**: Your calendar is available from any device with your HandCash login
+- 💎 **Permanent Storage**: Built on Bitcoin SV for immutable event storage
+- 📅 **Rich Calendar**: Full-featured calendar with event scheduling and management
+- 💾 **Auto-save**: Automatic saving of your events
 - 📱 **Responsive**: Works on desktop and mobile devices
 
 ## Getting Started
@@ -24,8 +24,8 @@ A decentralized writing application built on Bitcoin SV blockchain with HandCash
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/bitcoin-apps-suite/bitcoin-writer.git
-   cd bitcoin-writer
+   git clone https://github.com/bitcoin-apps-suite/bitcoin-calendar.git
+   cd bitcoin-calendar
    ```
 
 2. Install dependencies:
@@ -72,9 +72,9 @@ vercel
 ## How It Works
 
 1. **Authentication**: Users sign in with their HandCash wallet using OAuth2 flow
-2. **Encryption**: Document content is encrypted using a key derived from the user's HandCash authentication
-3. **Storage**: Encrypted documents are stored on the Bitcoin SV blockchain (currently simulated with localStorage in demo mode)
-4. **Access**: Only the authenticated user can decrypt and read their documents
+2. **Encryption**: Calendar data is encrypted using a key derived from the user's HandCash authentication
+3. **Storage**: Encrypted calendar events are stored on the Bitcoin SV blockchain (currently simulated with localStorage in demo mode)
+4. **Access**: Only the authenticated user can decrypt and read their calendar data
 
 ## Architecture
 
@@ -87,23 +87,23 @@ vercel
 ## Key Components
 
 - `HandCashAuthService`: Handles OAuth2 authentication with HandCash
-- `BlockchainDocumentService`: Manages encrypted document storage and retrieval
-- `DocumentEditor`: Rich text editor with blockchain integration
+- `BlockchainDocumentService`: Manages encrypted calendar data storage and retrieval
+- `CalendarView`: Calendar interface with blockchain integration
 - `Login`: HandCash authentication interface
 
 ## Security Features
 
-- Documents are encrypted client-side before storage
+- Calendar events are encrypted client-side before storage
 - Encryption keys are derived from user authentication tokens
-- No plaintext document content ever leaves the user's device unencrypted
+- No plaintext calendar data ever leaves the user's device unencrypted
 - Authentication tokens are securely managed in localStorage
 
 ## Keyboard Shortcuts
 
-- **Ctrl/Cmd + S**: Save document
-- **Ctrl/Cmd + N**: New document
+- **Ctrl/Cmd + S**: Save event
+- **Ctrl/Cmd + N**: New event
 - **F11**: Toggle fullscreen mode
-- **Tab**: Insert 4 spaces (indentation)
+- **Arrow Keys**: Navigate calendar
 
 ## Development
 
@@ -150,4 +150,4 @@ For support, please contact the development team or create an issue on GitHub.
 
 - Built on Bitcoin SV blockchain
 - Powered by HandCash for authentication
-- Inspired by the need for decentralized, private document storage 
+- Inspired by the need for decentralized, private calendar management 
