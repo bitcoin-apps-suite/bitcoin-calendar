@@ -178,7 +178,7 @@ const AuthorsGrantsPage: React.FC = () => {
 
   const getCategoryColor = (category: AuthorGrant['category']) => {
     switch (category) {
-      case 'content': return '#FF6B35';
+      case 'content': return '#a855f7';
       case 'research': return '#8b5cf6';
       case 'documentation': return '#3b82f6';
       case 'education': return '#22c55e';

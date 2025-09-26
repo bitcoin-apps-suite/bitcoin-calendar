@@ -550,7 +550,7 @@
 }
 /* NFT Badge and Button Styles */
 .nft-badge {
-  background: linear-gradient(45deg, #f7931a, #d946ef);
+  background: linear-gradient(45deg, #8b5cf6, #d946ef);
   color: white;
   padding: 3px 8px;
   border-radius: 6px;
@@ -569,7 +569,7 @@
 }
 
 .btn-buy.nft-buy {
-  background: linear-gradient(45deg, #f7931a, #d946ef);
+  background: linear-gradient(45deg, #8b5cf6, #d946ef);
   color: white;
   border: none;
   font-weight: 300;

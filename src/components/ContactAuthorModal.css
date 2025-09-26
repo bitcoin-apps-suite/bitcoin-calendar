@@ -72,7 +72,7 @@
 }
 
 .close-btn:hover {
-  color: #FF6B35;
+  color: #a855f7;
 }
 
 .modal-content {
@@ -262,7 +262,7 @@
 }
 
 .submit-btn {
-  background: linear-gradient(90deg, #FF6B35, #F7931E);
+  background: linear-gradient(90deg, #a855f7, #F7931E);
   border: none;
   color: #000000;
   font-weight: 600;

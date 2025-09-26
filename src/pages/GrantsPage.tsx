@@ -45,7 +45,7 @@ const GrantsPage: React.FC = () => {
             <div className="grants-hero-icon">
               <Flower2 size={64} />
             </div>
-            <h1>Bitcoin Calendar <span style={{color: '#FF6B35'}}>Grants</span></h1>
+            <h1>Bitcoin Calendar <span style={{color: '#a855f7'}}>Grants</span></h1>
             <p className="grants-tagline">
               $BCAL token awards for quality submissions, plus public discovery platform for independent funding
             </p>
@@ -97,7 +97,7 @@ const GrantsPage: React.FC = () => {
                     <li>Develop educational tools and resources</li>
                     <li>Build integrations with other BSV applications</li>
                   </ul>
-                  <div style={{marginTop: '10px', fontSize: '12px', color: '#FF6B35'}}>
+                  <div style={{marginTop: '10px', fontSize: '12px', color: '#a855f7'}}>
                     Bitcoin Calendar awards $BCAL for platform improvements
                   </div>
                 </div>
@@ -111,7 +111,7 @@ const GrantsPage: React.FC = () => {
                     <li>Research scalability and efficiency improvements</li>
                     <li>Build bridges to traditional industries</li>
                   </ul>
-                  <div style={{marginTop: '10px', fontSize: '12px', color: '#FF6B35'}}>
+                  <div style={{marginTop: '10px', fontSize: '12px', color: '#a855f7'}}>
                     Independent funders may support infrastructure projects
                   </div>
                 </div>
@@ -125,7 +125,7 @@ const GrantsPage: React.FC = () => {
                     <li>Build tools for educators and researchers</li>
                     <li>Enable new forms of academic publishing</li>
                   </ul>
-                  <div style={{marginTop: '10px', fontSize: '12px', color: '#FF6B35'}}>
+                  <div style={{marginTop: '10px', fontSize: '12px', color: '#a855f7'}}>
                     $BCAL curation signals attract funder attention
                   </div>
                 </div>

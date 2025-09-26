@@ -309,7 +309,7 @@ const UnifiedAuth: React.FC<UnifiedAuthProps> = ({
     );
   }
 
-  // If we have at least one auth, show unified interface with orange button style
+  // If we have at least one auth, show unified interface with purple button style
   return (
     <div className="unified-auth-container">
       <button 

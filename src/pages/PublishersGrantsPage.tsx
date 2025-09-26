@@ -178,7 +178,7 @@ const PublishersGrantsPage: React.FC = () => {
 
   const getCategoryColor = (category: PublisherGrant['category']) => {
     switch (category) {
-      case 'platform': return '#FF6B35';
+      case 'platform': return '#a855f7';
       case 'content': return '#F7931E';
       case 'distribution': return '#3b82f6';
       case 'innovation': return '#8b5cf6';
