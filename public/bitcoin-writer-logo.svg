@@ -1,0 +1,26 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Black background with rounded corners -->
+  <rect width="512" height="512" rx="80" fill="#000000"/>
+  
+  <!-- Orange gradient circle background -->
+  <circle cx="256" cy="256" r="200" fill="url(#orangeGradient)"/>
+  
+  <!-- Bitcoin B symbol in white -->
+  <path d="M 200 150 L 200 362 L 280 362 C 320 362 350 340 350 300 C 350 270 330 250 310 245 C 325 240 340 220 340 190 C 340 150 310 130 270 130 L 200 130 Z M 240 170 L 260 170 C 280 170 295 180 295 200 C 295 220 280 230 260 230 L 240 230 Z M 240 270 L 270 270 C 290 270 305 280 305 300 C 305 320 290 330 270 330 L 240 330 Z" 
+        fill="#FFFFFF"/>
+  
+  <!-- Pen/Quill accent -->
+  <g transform="translate(320, 320)">
+    <path d="M 0 0 L -40 40 L -30 50 L 10 10 L 50 -30 Q 55 -35 50 -40 L 40 -50 Q 35 -55 30 -50 Z" 
+          fill="#000000" opacity="0.7"/>
+    <path d="M -40 40 L -30 50 L -25 35 Z" fill="#FFD700"/>
+  </g>
+  
+  <!-- Gradient -->
+  <defs>
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f7931a"/>
+      <stop offset="100%" style="stop-color:#ff9500"/>
+    </linearGradient>
+  </defs>
+</svg>
