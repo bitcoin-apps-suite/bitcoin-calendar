@@ -457,3 +457,154 @@
 .calendar-container::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
 }
+
+/* App Header Styles - matching Bitcoin Writer */
+.App-header {
+  background: #1a1a1a;
+  color: #ffffff;
+  padding: 16px 24px;
+  border-bottom: 1px solid #333;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 96px;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 200;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.desktop-header-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.desktop-header-wrapper * {
+  pointer-events: auto;
+}
+
+.App-header h1 {
+  font-size: 32px;
+  font-weight: 300;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.app-subtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  font-weight: 300;
+}
+
+.app-logo {
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.3));
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 2;
+}
+
+.desktop-user-info {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.handcash-user-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.handcash-user-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.user-handle {
+  font-size: 12px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.connect-btn {
+  background: linear-gradient(45deg, #8b5cf6, #d946ef);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.connect-btn:hover {
+  background: linear-gradient(45deg, #7c3aed, #c026d3);
+  transform: translateY(-1px);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .App-header {
+    padding: 12px 16px 16px 16px;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .App-header h1 {
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+  }
+  
+  .app-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+  }
+  
+  .desktop-header-wrapper {
+    position: static;
+    transform: none;
+    left: auto;
+    top: auto;
+    width: 100%;
+  }
+  
+  .desktop-user-info {
+    position: static;
+    transform: none;
+    right: auto;
+    top: auto;
+  }
+}

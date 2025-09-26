@@ -127,6 +127,48 @@ const CalendarPage: React.FC<CalendarPageProps> = ({ isAuthenticated, currentUse
 
   return (
     <div className={`calendar-page ${!isMobile && !devSidebarCollapsed ? 'sidebar-expanded' : ''} ${!isMobile && devSidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
+      <header className="App-header">
+        {/* Desktop header layout */}
+        <div className="desktop-header-wrapper">
+          <h1
+            onClick={() => window.location.href = '/'}
+            style={{ cursor: 'pointer' }}
+          >
+            <img 
+              src="/logo.svg" 
+              alt="Bitcoin Calendar Logo" 
+              className="app-logo"
+              style={{ width: '32px', height: '32px', marginRight: '12px', verticalAlign: 'middle' }}
+            />
+            <span style={{color: '#8b5cf6'}}>Bitcoin</span> Calendar
+          </h1>
+          <p className="app-subtitle">Decentralized scheduling and event management on Bitcoin SV</p>
+        </div>
+        
+        {/* User info (top right) */}
+        <div className="user-info desktop-user-info">
+          {isAuthenticated && currentUser ? (
+            <>
+              <div className="handcash-user-badge">
+                <img 
+                  src="https://handcash.io/favicon.ico" 
+                  alt="HandCash" 
+                  className="handcash-user-icon"
+                />
+                <span className="user-handle">@{currentUser.handle}</span>
+              </div>
+            </>
+          ) : (
+            <button 
+              className="connect-btn"
+              onClick={() => alert('Connect your HandCash wallet to get started')}
+            >
+              Connect
+            </button>
+          )}
+        </div>
+      </header>
+      
       <div className="calendar-header">
         <div className="calendar-title-section">
           <Calendar className="calendar-icon" size={32} />
