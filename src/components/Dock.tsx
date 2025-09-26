@@ -30,7 +30,6 @@ const Dock: React.FC = () => {
       'text-purple-500': '#a855f7',
       'text-yellow-500': '#eab308',
       'text-red-500': '#ef4444',
-      'text-purple-500': '#a855f7',
       'text-green-500': '#22c55e',
       'text-blue-500': '#3b82f6',
       'text-gray-500': '#6b7280',
