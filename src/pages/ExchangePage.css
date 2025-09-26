@@ -1,10 +1,12 @@
 /* Exchange Page Styles - Table Format */
 .exchange-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background: #0a0a0a;
   color: #ffffff;
   padding: 0;
   transition: padding-left 0.3s ease;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 300;
 }
 
 /* Default state - no sidebar on mobile, collapsed sidebar on desktop */
@@ -27,7 +29,7 @@
 }
 
 .exchange-container {
-  padding: 20px;
+  padding: 40px;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -52,10 +54,11 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 28px;
+  font-weight: 200;
   margin: 0;
   color: #ffffff;
+  letter-spacing: -0.5px;
 }
 
 .exchange-title svg {
@@ -66,13 +69,14 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 12px;
+  padding: 6px 14px;
   background: rgba(16, 185, 129, 0.1);
-  border: 1px solid #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
   border-radius: 20px;
   color: #10b981;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
   animation: pulse 2s infinite;
 }
 
@@ -91,10 +95,10 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 12px;
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.3);
-  border-radius: 8px;
+  padding: 10px 14px;
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
 }
 
 .category-filter svg {
@@ -115,13 +119,14 @@
 }
 
 .search-input {
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
   color: #ffffff;
   font-size: 14px;
-  width: 250px;
+  font-weight: 300;
+  width: 280px;
   outline: none;
   transition: all 0.2s ease;
 }
@@ -139,12 +144,13 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  color: #ffffff;
-  font-size: 14px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  font-weight: 400;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -158,12 +164,13 @@
 .market-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  margin-bottom: 24px;
-  padding: 16px;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 12px;
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  gap: 24px;
+  margin-bottom: 32px;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  backdrop-filter: blur(10px);
 }
 
 .stat-item {
@@ -173,21 +180,26 @@
 }
 
 .stat-label {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  font-weight: 400;
 }
 
 .stat-value {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 200;
   color: #ffffff;
+  letter-spacing: -0.5px;
 }
 
 .stat-change {
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .stat-change.positive {
@@ -200,10 +212,11 @@
 
 /* Table Styles */
 .exchange-table-container {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
   overflow-x: auto;
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .exchange-table {
@@ -212,18 +225,18 @@
 }
 
 .exchange-table thead {
-  background: rgba(139, 92, 246, 0.1);
-  border-bottom: 2px solid rgba(139, 92, 246, 0.3);
+  background: rgba(139, 92, 246, 0.05);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
 }
 
 .exchange-table th {
-  padding: 12px;
+  padding: 16px 12px;
   text-align: left;
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   white-space: nowrap;
 }
 
@@ -241,9 +254,10 @@
 }
 
 .exchange-table td {
-  padding: 12px;
+  padding: 16px 12px;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.9);
+  font-weight: 300;
 }
 
 .sticky-col {
@@ -254,9 +268,10 @@
 }
 
 .rank-cell {
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
   min-width: 60px;
+  font-size: 13px;
 }
 
 .trending-badge {
@@ -281,19 +296,21 @@
 }
 
 .calendar-title {
-  font-weight: 600;
+  font-weight: 400;
   color: #ffffff;
   display: flex;
   align-items: center;
   gap: 6px;
+  font-size: 15px;
 }
 
 .verified {
   color: #10b981;
-  font-size: 12px;
+  font-size: 11px;
   background: rgba(16, 185, 129, 0.1);
-  padding: 1px 4px;
+  padding: 2px 5px;
   border-radius: 4px;
+  margin-left: 4px;
 }
 
 .calendar-creator {
@@ -302,17 +319,22 @@
 }
 
 .symbol-cell {
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .price-cell {
-  font-weight: 500;
+  font-weight: 300;
   color: #ffffff;
+  font-size: 15px;
 }
 
 .change-cell {
-  font-weight: 500;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .change-cell.positive {
@@ -329,14 +351,16 @@
 
 .trade-btn {
   padding: 6px 16px;
-  background: linear-gradient(45deg, #8b5cf6, #d946ef);
+  background: linear-gradient(90deg, #8b5cf6, #d946ef);
   border: none;
-  border-radius: 6px;
+  border-radius: 20px;
   color: #ffffff;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .trade-btn:hover {
