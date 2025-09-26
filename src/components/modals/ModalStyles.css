@@ -96,7 +96,7 @@
   margin: 0 0 16px 0;
   font-size: 16px;
   font-weight: 600;
-  color: #ff9500;
+  color: #8b5cf6;
 }
 
 .preference-item {
@@ -152,7 +152,7 @@
 
 /* Buttons */
 .btn-primary {
-  background: #ff9500;
+  background: #8b5cf6;
   color: #000000;
   border: none;
   padding: 8px 20px;
@@ -185,8 +185,8 @@
 
 /* Storage Calculator Specific */
 .calculator-result {
-  background: rgba(255, 149, 0, 0.1);
-  border: 1px solid rgba(255, 149, 0, 0.3);
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: 8px;
   padding: 16px;
   margin-top: 20px;
@@ -194,7 +194,7 @@
 
 .calculator-result h4 {
   margin: 0 0 12px 0;
-  color: #ff9500;
+  color: #8b5cf6;
   font-size: 16px;
 }
 
@@ -226,7 +226,7 @@
 
 .api-method.get { background: #00a8cc; }
 .api-method.post { background: #00cc88; }
-.api-method.put { background: #ff9500; }
+.api-method.put { background: #8b5cf6; }
 .api-method.delete { background: #ff4444; }
 
 .api-path {
@@ -256,7 +256,7 @@
   border-radius: 4px;
   font-family: 'SF Mono', Monaco, monospace;
   font-size: 12px;
-  color: #ff9500;
+  color: #8b5cf6;
 }
 
 .shortcut-description {

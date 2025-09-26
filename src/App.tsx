@@ -608,7 +608,7 @@ function App() {
                     }}
                     title="Return to main view"
                   >
-                    <span style={{color: '#ff9500'}}>Bitcoin</span> Writer
+                    <span style={{color: '#8b5cf6'}}>Bitcoin</span> Calendar
                   </h1>
                 </div>
                 <p className="app-subtitle">Encrypt, publish and sell shares in your work</p>

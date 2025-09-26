@@ -28,7 +28,7 @@ const BitcoinAppsView: React.FC<BitcoinAppsViewProps> = ({ isOpen, onClose }) =>
       name: 'Bitcoin Calendar',
       description: 'Write, encrypt, and store documents on Bitcoin. Set paywalls, multisig conditions, and timelock access.',
       url: 'https://bitcoin-writer.vercel.app',
-      color: '#ff9500',
+      color: '#8b5cf6',
       icon: '✍️'
     }
   ];

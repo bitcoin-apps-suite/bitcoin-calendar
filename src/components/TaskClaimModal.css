@@ -23,7 +23,7 @@
 
 .task-claim-modal {
   background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
-  border: 2px solid rgba(255, 149, 0, 0.3);
+  border: 2px solid rgba(139, 92, 246, 0.3);
   border-radius: 16px;
   max-width: 700px;
   width: 90%;
@@ -49,12 +49,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
-  border-bottom: 1px solid rgba(255, 149, 0, 0.2);
-  background: rgba(255, 149, 0, 0.05);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+  background: rgba(139, 92, 246, 0.05);
 }
 
 .modal-header h2 {
-  color: #ff9500;
+  color: #8b5cf6;
   margin: 0;
   font-size: 1.5rem;
 }
@@ -62,7 +62,7 @@
 .close-btn {
   background: transparent;
   border: none;
-  color: #ff9500;
+  color: #8b5cf6;
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0.5rem;
@@ -75,7 +75,7 @@
 
 .task-info {
   padding: 1.5rem;
-  border-bottom: 1px solid rgba(255, 149, 0, 0.1);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.1);
 }
 
 .task-info h3 {
@@ -115,13 +115,13 @@
 }
 
 .task-meta .reward {
-  background: rgba(255, 149, 0, 0.2);
-  color: #ff9500;
-  border: 1px solid rgba(255, 149, 0, 0.3);
+  background: rgba(139, 92, 246, 0.2);
+  color: #8b5cf6;
+  border: 1px solid rgba(139, 92, 246, 0.3);
 }
 
 .github-issue-link {
-  color: #ff9500;
+  color: #8b5cf6;
   text-decoration: none;
   font-size: 0.9rem;
   display: inline-flex;
@@ -159,18 +159,18 @@
 .step-number {
   width: 30px;
   height: 30px;
-  background: rgba(255, 149, 0, 0.2);
-  border: 2px solid rgba(255, 149, 0, 0.3);
+  background: rgba(139, 92, 246, 0.2);
+  border: 2px solid rgba(139, 92, 246, 0.3);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ff9500;
+  color: #8b5cf6;
   font-weight: bold;
 }
 
 .step.completed .step-number {
-  background: #ff9500;
+  background: #8b5cf6;
   color: #000;
 }
 
@@ -204,7 +204,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, #ff9500 0%, #ff6b00 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
   border: none;
   border-radius: 8px;
   color: #000;
@@ -230,7 +230,7 @@
 .handcash-login-btn:hover,
 .sign-contract-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 149, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
 }
 
 .user-info {
@@ -243,7 +243,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid rgba(255, 149, 0, 0.3);
+  border: 2px solid rgba(139, 92, 246, 0.3);
 }
 
 .user-info div {
@@ -262,14 +262,14 @@
 }
 
 .contract-preview {
-  background: rgba(255, 149, 0, 0.05);
-  border: 1px solid rgba(255, 149, 0, 0.2);
+  background: rgba(139, 92, 246, 0.05);
+  border: 1px solid rgba(139, 92, 246, 0.2);
   border-radius: 8px;
   padding: 1.25rem;
 }
 
 .contract-preview h4 {
-  color: #ff9500;
+  color: #8b5cf6;
   margin-bottom: 1rem;
   font-size: 1.1rem;
 }
@@ -282,7 +282,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(255, 149, 0, 0.1);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.1);
 }
 
 .contract-item:last-child {
@@ -342,15 +342,15 @@
 }
 
 .countdown-timer {
-  background: rgba(255, 149, 0, 0.05);
-  border: 1px solid rgba(255, 149, 0, 0.2);
+  background: rgba(139, 92, 246, 0.05);
+  border: 1px solid rgba(139, 92, 246, 0.2);
   border-radius: 12px;
   padding: 1.5rem;
   margin: 1.5rem 0;
 }
 
 .countdown-timer h4 {
-  color: #ff9500;
+  color: #8b5cf6;
   margin-bottom: 1rem;
 }
 
@@ -368,7 +368,7 @@
   display: block;
   font-size: 2rem;
   font-weight: bold;
-  color: #ff9500;
+  color: #8b5cf6;
   margin-bottom: 0.25rem;
 }
 
@@ -388,7 +388,7 @@
 }
 
 .next-steps h4 {
-  color: #ff9500;
+  color: #8b5cf6;
   margin-bottom: 1rem;
 }
 
@@ -400,17 +400,17 @@
 
 .close-modal-btn {
   padding: 0.75rem 2rem;
-  background: rgba(255, 149, 0, 0.2);
-  border: 1px solid rgba(255, 149, 0, 0.3);
+  background: rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: 8px;
-  color: #ff9500;
+  color: #8b5cf6;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .close-modal-btn:hover {
-  background: rgba(255, 149, 0, 0.3);
+  background: rgba(139, 92, 246, 0.3);
   transform: translateY(-2px);
 }
 
@@ -434,12 +434,12 @@
 }
 
 .task-claim-modal::-webkit-scrollbar-thumb {
-  background: rgba(255, 149, 0, 0.4);
+  background: rgba(139, 92, 246, 0.4);
   border-radius: 4px;
 }
 
 .task-claim-modal::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 149, 0, 0.6);
+  background: rgba(139, 92, 246, 0.6);
 }
 
 /* Responsive */

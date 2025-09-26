@@ -131,6 +131,8 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
     {
       label: 'Blockchain',
       items: [
+        { label: 'Calendar Exchange', href: '/exchange' },
+        { divider: true },
         { label: 'Encrypt Calendar', shortcut: '⌘L', action: () => (document.querySelector('[title*="Encrypt"]') as HTMLElement)?.click() },
         { label: 'Decrypt Calendar', action: () => (document.querySelector('[title*="Decrypt"]') as HTMLElement)?.click() },
         { divider: true },
@@ -801,7 +803,7 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
             <div style={{ padding: '16px' }}>
               {/* Quick Actions */}
               <div style={{ marginBottom: '24px' }}>
-                <h3 style={{ fontSize: '14px', color: '#ff9500', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                <h3 style={{ fontSize: '14px', color: '#8b5cf6', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                   Quick Actions
                 </h3>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>

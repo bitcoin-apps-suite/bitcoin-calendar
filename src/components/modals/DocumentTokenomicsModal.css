@@ -9,7 +9,7 @@
   max-width: 800px;
   max-height: 85vh;
   background: #1a1a1a;
-  border: 1px solid rgba(255, 149, 0, 0.3);
+  border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: 16px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
   z-index: 10001;
@@ -24,7 +24,7 @@
   align-items: center;
   padding: 20px 24px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(135deg, rgba(255, 149, 0, 0.1), rgba(255, 149, 0, 0.05));
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));
 }
 
 .modal-header h2 {
@@ -81,9 +81,9 @@
 }
 
 .tab.active {
-  color: #ff9500;
-  border-bottom-color: #ff9500;
-  background: rgba(255, 149, 0, 0.05);
+  color: #8b5cf6;
+  border-bottom-color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.05);
 }
 
 /* Content Area */
@@ -117,13 +117,13 @@
 }
 
 .model-option:hover {
-  border-color: rgba(255, 149, 0, 0.3);
-  background: rgba(255, 149, 0, 0.02);
+  border-color: rgba(139, 92, 246, 0.3);
+  background: rgba(139, 92, 246, 0.02);
 }
 
 .model-option.selected {
-  border-color: #ff9500;
-  background: rgba(255, 149, 0, 0.1);
+  border-color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.1);
 }
 
 .model-option input[type="radio"] {
@@ -183,8 +183,8 @@
 }
 
 .template-btn:hover {
-  background: rgba(255, 149, 0, 0.1);
-  border-color: rgba(255, 149, 0, 0.3);
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.3);
 }
 
 .template-btn strong {
@@ -231,7 +231,7 @@
 
 .config-group input:focus {
   outline: none;
-  border-color: #ff9500;
+  border-color: #8b5cf6;
   background: rgba(0, 0, 0, 0.5);
 }
 
@@ -271,12 +271,12 @@
 }
 
 .function-options label:hover {
-  background: rgba(255, 149, 0, 0.1);
-  border-color: rgba(255, 149, 0, 0.3);
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.3);
 }
 
 .function-options input[type="radio"]:checked + span {
-  color: #ff9500;
+  color: #8b5cf6;
   font-weight: 500;
 }
 
@@ -385,17 +385,17 @@
 
 .add-split-btn {
   padding: 10px 16px;
-  background: rgba(255, 149, 0, 0.1);
-  border: 1px dashed rgba(255, 149, 0, 0.3);
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px dashed rgba(139, 92, 246, 0.3);
   border-radius: 6px;
-  color: #ff9500;
+  color: #8b5cf6;
   font-size: 13px;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .add-split-btn:hover {
-  background: rgba(255, 149, 0, 0.2);
+  background: rgba(139, 92, 246, 0.2);
   border-style: solid;
 }
 
@@ -517,7 +517,7 @@
 
 .save-btn {
   padding: 10px 24px;
-  background: linear-gradient(135deg, #ff9500, #ff7300);
+  background: linear-gradient(135deg, #8b5cf6, #8b5cf6);
   border: none;
   border-radius: 6px;
   color: #fff;
@@ -525,13 +525,13 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 2px 8px rgba(255, 149, 0, 0.3);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
 }
 
 .save-btn:hover {
-  background: linear-gradient(135deg, #ff7300, #ff9500);
+  background: linear-gradient(135deg, #8b5cf6, #8b5cf6);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255, 149, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
 }
 
 /* Mobile Responsive */

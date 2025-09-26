@@ -6,7 +6,7 @@
 /* Single Sign In Button */
 .sign-in-btn {
   padding: 8px 20px;
-  background: linear-gradient(135deg, #ff9500, #ff7300);
+  background: linear-gradient(135deg, #8b5cf6, #8b5cf6);
   color: white;
   border: none;
   border-radius: 8px;
@@ -14,16 +14,16 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(255, 149, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.2);
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
 .sign-in-btn:hover {
-  background: linear-gradient(135deg, #ff7300, #ff9500);
+  background: linear-gradient(135deg, #8b5cf6, #8b5cf6);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255, 149, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
 }
 
 /* Auth Modal */
@@ -287,8 +287,8 @@
 }
 
 .integration-workflow > div {
-  background: rgba(255, 149, 0, 0.03);
-  border: 1px solid rgba(255, 149, 0, 0.1);
+  background: rgba(139, 92, 246, 0.03);
+  border: 1px solid rgba(139, 92, 246, 0.1);
   border-radius: 8px;
   padding: 16px;
 }
@@ -297,7 +297,7 @@
   margin: 0 0 12px 0;
   font-size: 13px;
   font-weight: 600;
-  color: #ff9500;
+  color: #8b5cf6;
 }
 
 .integration-workflow ul {
@@ -319,7 +319,7 @@
   content: "•";
   position: absolute;
   left: 0;
-  color: #ff9500;
+  color: #8b5cf6;
   font-weight: bold;
 }
 
@@ -335,14 +335,14 @@
 .premium-subscribe-section {
   margin-top: 24px;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 149, 0, 0.3);
+  border-top: 1px solid rgba(139, 92, 246, 0.3);
 }
 
 .premium-subscribe-section h4 {
   margin: 0 0 12px 0;
   font-size: 14px;
   font-weight: 600;
-  color: #ff9500;
+  color: #8b5cf6;
 }
 
 .premium-subscribe-section p {
@@ -371,7 +371,7 @@
   content: "⭐";
   position: absolute;
   left: 0;
-  color: #ff9500;
+  color: #8b5cf6;
   font-size: 10px;
 }
 
@@ -948,7 +948,7 @@
 
 /* Add Account Section */
 .add-account-section {
-  background: rgba(255, 149, 0, 0.05);
+  background: rgba(139, 92, 246, 0.05);
 }
 
 .add-account-item {
@@ -1089,9 +1089,9 @@
 
 .credits-note {
   padding: 12px;
-  background: rgba(255, 149, 0, 0.05);
+  background: rgba(139, 92, 246, 0.05);
   border-radius: 8px;
-  border: 1px solid rgba(255, 149, 0, 0.2);
+  border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
 .credits-note p {

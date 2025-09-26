@@ -37,20 +37,20 @@
 .drop-zone-content {
   text-align: center;
   padding: 60px;
-  border: 3px dashed #ff9500;
+  border: 3px dashed #8b5cf6;
   border-radius: 20px;
-  background: rgba(255, 149, 0, 0.05);
+  background: rgba(139, 92, 246, 0.05);
   animation: pulse 1.5s ease infinite;
 }
 
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
-    border-color: #ff9500;
+    border-color: #8b5cf6;
   }
   50% {
     transform: scale(1.02);
-    border-color: #ffb347;
+    border-color: #d946ef;
   }
 }
 
@@ -70,7 +70,7 @@
 }
 
 .drop-zone-content h2 {
-  color: #ff9500;
+  color: #8b5cf6;
   font-size: 32px;
   margin-bottom: 10px;
   font-weight: 600;
@@ -94,10 +94,10 @@
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: rgba(255, 149, 0, 0.1);
-  border: 1px solid rgba(255, 149, 0, 0.3);
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: 20px;
-  color: #ff9500;
+  color: #8b5cf6;
   font-size: 14px;
   font-weight: 500;
 }
@@ -142,8 +142,8 @@
 
 .floating-drop-pad.drag-over {
   transform: scale(1.1);
-  background: rgba(255, 149, 0, 0.1);
-  border: 2px solid #ff9500;
+  background: rgba(139, 92, 246, 0.1);
+  border: 2px solid #8b5cf6;
   animation: wiggle 0.5s ease infinite;
 }
 
@@ -178,7 +178,7 @@
 
 .dark-mode .floating-drop-pad:hover {
   background: rgba(42, 42, 42, 1);
-  border-color: rgba(255, 149, 0, 0.3);
+  border-color: rgba(139, 92, 246, 0.3);
 }
 
 .dark-mode .drop-pad-text {
@@ -190,7 +190,7 @@
 }
 
 .dark-mode .drop-zone-content {
-  background: rgba(255, 149, 0, 0.08);
+  background: rgba(139, 92, 246, 0.08);
 }
 
 .dark-mode .drop-zone-content p {

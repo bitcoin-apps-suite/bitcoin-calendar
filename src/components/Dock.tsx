@@ -27,7 +27,7 @@ const Dock: React.FC = () => {
 
   const getIconColor = (colorClass: string): string => {
     const colorMap: { [key: string]: string } = {
-      'text-orange-500': '#f97316',
+      'text-purple-500': '#a855f7',
       'text-yellow-500': '#eab308',
       'text-red-500': '#ef4444',
       'text-purple-500': '#a855f7',
@@ -41,11 +41,11 @@ const Dock: React.FC = () => {
   };
 
   const dockApps: DockApp[] = [
-    { id: 'bapps-store', name: 'Bitcoin Apps Store', icon: Store, color: 'text-orange-500', url: 'https://www.bitcoinapps.store/', isImage: true },
+    { id: 'bapps-store', name: 'Bitcoin Apps Store', icon: Store, color: 'text-purple-500', url: 'https://www.bitcoinapps.store/', isImage: true },
     { name: 'Bitcoin Wallet', icon: Wallet, color: 'text-yellow-500', url: 'http://localhost:1050' },
     { name: 'Bitcoin Email', icon: Mail, color: 'text-red-500', url: 'https://bitcoin-email.vercel.app' },
     { name: 'Bitcoin Music', icon: Music, color: 'text-purple-500', url: 'https://bitcoin-music.vercel.app' },
-    { name: 'Bitcoin Calendar', icon: FileText, color: 'text-orange-500', url: 'https://bitcoin-writer.vercel.app' },
+    { name: 'Bitcoin Calendar', icon: FileText, color: 'text-purple-500', url: 'https://bitcoin-writer.vercel.app' },
     { name: 'Bitcoin Drive', icon: HardDrive, color: 'text-green-500', url: 'https://bitcoin-drive.vercel.app' },
     { name: 'Bitcoin Calendar', icon: Calendar, color: 'text-red-500', url: 'https://bitcoin-calendar.vercel.app', current: true },
     { name: 'Bitcoin Search', icon: Search, color: 'text-gray-500', url: 'https://bitcoin-search.vercel.app', disabled: true },

@@ -39,7 +39,7 @@
   font-weight: 200;
   margin-bottom: 16px;
   letter-spacing: -1.5px;
-  background: linear-gradient(90deg, #f7931a, #ff9500);
+  background: linear-gradient(90deg, #f7931a, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -130,7 +130,7 @@
 }
 
 .acknowledgment h2 {
-  color: #ff9500;
+  color: #8b5cf6;
   margin-bottom: 20px;
 }
 
@@ -149,8 +149,8 @@
 }
 
 .terms-content a:hover {
-  color: #ff9500;
-  border-bottom-color: #ff9500;
+  color: #8b5cf6;
+  border-bottom-color: #8b5cf6;
 }
 
 /* Code blocks */
@@ -177,7 +177,7 @@
 }
 
 .terms-page::-webkit-scrollbar-thumb:hover {
-  background: #ff9500;
+  background: #8b5cf6;
 }
 
 /* Mobile Responsive */

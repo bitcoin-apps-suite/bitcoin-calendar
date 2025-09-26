@@ -23,6 +23,7 @@ import {
   Film,
   Globe
 } from 'lucide-react';
+import Footer from '../components/Footer';
 import './ExchangePage.css';
 
 interface CalendarListing {
@@ -990,6 +991,8 @@ const ExchangePage: React.FC<ExchangePageProps> = ({ isAuthenticated, currentUse
           </div>
         </div>
       </div>
+      
+      <Footer />
     </div>
   );
 };

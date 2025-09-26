@@ -41,7 +41,7 @@
 .encrypt-badge {
   display: inline-block;
   padding: 8px 20px;
-  background: linear-gradient(90deg, #f7931a, #ff9500);
+  background: linear-gradient(90deg, #f7931a, #8b5cf6);
   border-radius: 100px;
   font-size: 13px;
   font-weight: 600;
@@ -57,7 +57,7 @@
   margin: 16px 0 20px 0;
   line-height: 1.1;
   letter-spacing: -1.5px;
-  background: linear-gradient(90deg, #f7931a, #ff9500);
+  background: linear-gradient(90deg, #f7931a, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -100,7 +100,7 @@
   font-weight: 200;
   text-align: center;
   margin-bottom: 12px;
-  background: linear-gradient(90deg, #f7931a, #ff9500);
+  background: linear-gradient(90deg, #f7931a, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -209,7 +209,7 @@
 }
 
 .encrypt-button {
-  background: linear-gradient(135deg, #f7931a 0%, #ff8c00 100%);
+  background: linear-gradient(135deg, #f7931a 0%, #a855f7 100%);
   color: white;
 }
 
@@ -276,7 +276,7 @@
   font-weight: 200;
   text-align: center;
   margin-bottom: 40px;
-  background: linear-gradient(90deg, #f7931a, #ff9500);
+  background: linear-gradient(90deg, #f7931a, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -331,7 +331,7 @@
   font-weight: 200;
   text-align: center;
   margin-bottom: 12px;
-  background: linear-gradient(90deg, #f7931a, #ff9500);
+  background: linear-gradient(90deg, #f7931a, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -390,7 +390,7 @@
   font-weight: 200;
   text-align: center;
   margin-bottom: 40px;
-  background: linear-gradient(90deg, #f7931a, #ff9500);
+  background: linear-gradient(90deg, #f7931a, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -444,7 +444,7 @@
   font-weight: 200;
   text-align: center;
   margin-bottom: 40px;
-  background: linear-gradient(90deg, #f7931a, #ff9500);
+  background: linear-gradient(90deg, #f7931a, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -493,7 +493,7 @@
   font-weight: 200;
   text-align: center;
   margin-bottom: 40px;
-  background: linear-gradient(90deg, #f7931a, #ff9500);
+  background: linear-gradient(90deg, #f7931a, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -575,7 +575,7 @@
   font-weight: 200;
   text-align: center;
   margin-bottom: 40px;
-  background: linear-gradient(90deg, #f7931a, #ff9500);
+  background: linear-gradient(90deg, #f7931a, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -631,7 +631,7 @@
   font-size: 42px;
   font-weight: 200;
   margin-bottom: 12px;
-  background: linear-gradient(90deg, #f7931a, #ff9500);
+  background: linear-gradient(90deg, #f7931a, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -647,7 +647,7 @@
 .encrypt-cta-button {
   display: inline-block;
   padding: 14px 32px;
-  background: linear-gradient(90deg, #f7931a, #ff9500);
+  background: linear-gradient(90deg, #f7931a, #8b5cf6);
   color: #000;
   font-size: 16px;
   font-weight: 600;

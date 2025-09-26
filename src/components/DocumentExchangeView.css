@@ -25,7 +25,7 @@
 }
 
 .exchange-view-header h1 .title-bitcoin-writer {
-  background: linear-gradient(135deg, #ff9500 0%, #ffb347 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -83,13 +83,13 @@
 
 .toggle-btn:hover {
   background: #222;
-  color: #ff9500;
+  color: #8b5cf6;
 }
 
 .toggle-btn.active {
-  background: linear-gradient(135deg, #ff9500 0%, #ffb347 50%, #ff8c00 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #d946ef 50%, #a855f7 100%);
   color: #000;
-  box-shadow: 0 2px 8px rgba(255, 149, 0, 0.3);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
 }
 
 /* View tabs */
@@ -117,11 +117,11 @@
 }
 
 .view-tab:hover {
-  color: #ff9500;
+  color: #8b5cf6;
 }
 
 .view-tab.active {
-  color: #ff9500;
+  color: #8b5cf6;
 }
 
 .view-tab.active::after {
@@ -131,7 +131,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: #ff9500;
+  background: #8b5cf6;
 }
 
 /* Market tabs */
@@ -157,11 +157,11 @@
 }
 
 .market-tab:hover {
-  color: #ff9500;
+  color: #8b5cf6;
 }
 
 .market-tab.active {
-  color: #ff9500;
+  color: #8b5cf6;
 }
 
 .market-tab.active::after {
@@ -171,7 +171,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: #ff9500;
+  background: #8b5cf6;
 }
 
 /* Author Category Tabs */
@@ -192,11 +192,11 @@
 }
 
 .author-tab:hover {
-  background: rgba(255, 149, 0, 0.1);
+  background: rgba(139, 92, 246, 0.1);
 }
 
 .author-tab.active {
-  background: linear-gradient(135deg, #ff9500 0%, #ffb347 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
   color: #000;
 }
 
@@ -236,7 +236,7 @@
 
 .exchange-search:focus {
   outline: none;
-  border-color: #ff9500;
+  border-color: #8b5cf6;
 }
 
 .exchange-sort {
@@ -295,8 +295,8 @@
 }
 
 .exchange-table tbody tr.selected {
-  background: rgba(255, 149, 0, 0.1);
-  border-left: 3px solid #ff9500;
+  background: rgba(139, 92, 246, 0.1);
+  border-left: 3px solid #8b5cf6;
 }
 
 .exchange-table td {
@@ -319,10 +319,10 @@
   justify-content: center;
   width: 30px;
   height: 30px;
-  background: linear-gradient(135deg, #ff9500 0%, #ffb347 50%, #ff8c00 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #d946ef 50%, #a855f7 100%);
   color: #000;
   border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(255, 149, 0, 0.25);
+  box-shadow: 0 2px 6px rgba(139, 92, 246, 0.25);
   font-weight: 300;
   font-size: 13px;
 }
@@ -379,7 +379,7 @@
 }
 
 .author-handle {
-  color: #ff9500;
+  color: #8b5cf6;
   font-size: 11px;
 }
 
@@ -495,14 +495,14 @@
 }
 
 .btn-read {
-  background: linear-gradient(135deg, #ff9500 0%, #ffb347 50%, #ff8c00 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #d946ef 50%, #a855f7 100%);
   color: #000;
-  box-shadow: 0 2px 6px rgba(255, 149, 0, 0.25);
+  box-shadow: 0 2px 6px rgba(139, 92, 246, 0.25);
   transition: all 0.2s ease;
 }
 
 .btn-read:hover {
-  background: #ff8c00;
+  background: #a855f7;
 }
 
 /* Writer specific columns */
@@ -527,12 +527,12 @@
 }
 
 .verified-badge {
-  color: #ff9500;
+  color: #8b5cf6;
   font-size: 12px;
 }
 
 .writer-handle {
-  color: #ff9500;
+  color: #8b5cf6;
   font-size: 11px;
 }
 
@@ -550,7 +550,7 @@
 }
 /* NFT Badge and Button Styles */
 .nft-badge {
-  background: linear-gradient(45deg, #f7931a, #ffb347);
+  background: linear-gradient(45deg, #f7931a, #d946ef);
   color: white;
   padding: 3px 8px;
   border-radius: 6px;
@@ -569,7 +569,7 @@
 }
 
 .btn-buy.nft-buy {
-  background: linear-gradient(45deg, #f7931a, #ffb347);
+  background: linear-gradient(45deg, #f7931a, #d946ef);
   color: white;
   border: none;
   font-weight: 300;

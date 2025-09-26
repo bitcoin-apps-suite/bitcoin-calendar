@@ -13,7 +13,7 @@
   background: rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 3rem;
-  border: 1px solid rgba(255, 149, 0, 0.3);
+  border: 1px solid rgba(139, 92, 246, 0.3);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
@@ -35,7 +35,7 @@
 .signup-header h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, #ff9500 0%, #ff6b00 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -56,7 +56,7 @@
 
 .form-group label {
   display: block;
-  color: #ff9500;
+  color: #8b5cf6;
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
@@ -66,7 +66,7 @@
   width: 100%;
   padding: 0.9rem;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 149, 0, 0.4);
+  border: 1px solid rgba(139, 92, 246, 0.4);
   border-radius: 8px;
   color: #fff;
   font-size: 1.1rem;
@@ -75,8 +75,8 @@
 
 .form-group input:focus {
   outline: none;
-  border-color: #ff9500;
-  background: rgba(255, 149, 0, 0.05);
+  border-color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.05);
 }
 
 .form-group input::placeholder {
@@ -116,11 +116,11 @@
 }
 
 .radio-option input[type="radio"] {
-  accent-color: #ff9500;
+  accent-color: #8b5cf6;
 }
 
 .checkbox-option input[type="checkbox"] {
-  accent-color: #ff9500;
+  accent-color: #8b5cf6;
 }
 
 .form-footer {
@@ -137,7 +137,7 @@
 .submit-button {
   width: 100%;
   padding: 1rem;
-  background: linear-gradient(135deg, #ff9500 0%, #ff6b00 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -149,7 +149,7 @@
 
 .submit-button:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 149, 0, 0.4);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
 }
 
 .submit-button:disabled {
@@ -158,15 +158,15 @@
 }
 
 .signup-benefits {
-  background: rgba(255, 149, 0, 0.05);
+  background: rgba(139, 92, 246, 0.05);
   border-radius: 12px;
   padding: 1.5rem;
   margin-bottom: 2rem;
-  border: 1px solid rgba(255, 149, 0, 0.2);
+  border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
 .signup-benefits h3 {
-  color: #ff9500;
+  color: #8b5cf6;
   margin-bottom: 1rem;
 }
 
@@ -187,7 +187,7 @@
   content: "✓";
   position: absolute;
   left: 0;
-  color: #ff9500;
+  color: #8b5cf6;
   font-weight: bold;
 }
 
@@ -209,7 +209,7 @@
   display: block;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #ff9500;
+  color: #8b5cf6;
   margin-bottom: 0.5rem;
 }
 
@@ -229,7 +229,7 @@
 
 .cta-button {
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #ff9500 0%, #ff6b00 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -242,7 +242,7 @@
 
 .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 149, 0, 0.4);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
 }
 
 /* Mobile Responsive */
