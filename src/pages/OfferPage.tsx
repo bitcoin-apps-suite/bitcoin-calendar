@@ -152,7 +152,7 @@ const OfferPage: React.FC = () => {
                     <select value={createForm.currency} onChange={(e) => setCreateForm({...createForm, currency: e.target.value})}>
                       <option value="USD">USD ($)</option>
                       <option value="BSV">BSV</option>
-                      <option value="BWRITER">$BWRITER</option>
+                      <option value="BCAL">$BCAL</option>
                       <option value="OTHER">Other BSV Token</option>
                     </select>
                   </div>

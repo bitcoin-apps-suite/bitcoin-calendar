@@ -58,13 +58,13 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
 
   const menus: MenuData[] = [
     {
-      label: 'Bitcoin Writer',
+      label: 'Bitcoin Calendar',
       items: [
         { label: 'Home', action: () => {
           window.location.href = '/';
         }},
         { divider: true },
-        { label: 'About Bitcoin Writer', action: () => alert('Bitcoin Writer v2.0\n\nDecentralized document writing on Bitcoin SV\n\n© 2025 The Bitcoin Corporation LTD\nRegistered in England and Wales • Company No. 16735102\nAll rights reserved\n\nBuilt with HandCash integration') },
+        { label: 'About Bitcoin Calendar', action: () => alert('Bitcoin Calendar v2.0\n\nDecentralized document writing on Bitcoin SV\n\n© 2025 The Bitcoin Corporation LTD\nRegistered in England and Wales • Company No. 16735102\nAll rights reserved\n\nBuilt with HandCash integration') },
         { label: 'Features', action: () => {
           const event = new CustomEvent('showFeaturesPage');
           window.dispatchEvent(event);
@@ -73,7 +73,7 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
         { label: 'Preferences...', shortcut: '⌘,', action: () => setShowPreferences(true) },
         { label: 'Encryption Settings...', action: () => setShowEncryption(true) },
         { divider: true },
-        { label: 'Hide Bitcoin Writer', shortcut: '⌘H', action: () => console.log('Hide') },
+        { label: 'Hide Bitcoin Calendar', shortcut: '⌘H', action: () => console.log('Hide') },
         { label: 'Hide Others', shortcut: '⌥⌘H', action: () => console.log('Hide Others') },
         { divider: true },
         { label: isAuthenticated ? 'Sign Out' : 'Sign In', shortcut: '⌘Q', action: isAuthenticated ? onLogout : () => document.querySelector<HTMLButtonElement>('.sign-in-btn')?.click() }
@@ -279,8 +279,8 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
         { label: 'BSV SDK Docs', href: 'https://docs.bsvblockchain.org' },
         { label: 'HandCash SDK Docs', href: 'https://docs.handcash.io' },
         { divider: true },
-        { label: 'GitHub Repository', href: 'https://github.com/bitcoin-apps-suite/bitcoin-writer' },
-        { label: '$BWRITER Token', action: () => window.location.href = '/token' },
+        { label: 'GitHub Repository', href: 'https://github.com/bitcoin-apps-suite/bitcoin-calendar' },
+        { label: '$BCAL Token', action: () => window.location.href = '/token' },
         { label: 'API Documentation', action: () => setShowAPIDoc(true) },
         { divider: true },
         { label: 'Bitcoin Spreadsheet', href: 'https://github.com/bitcoin-apps-suite/bitcoin-spreadsheet' },
@@ -326,14 +326,14 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
       label: 'Help',
       items: [
         { label: 'Platform Overview', href: '/platform' },
-        { label: 'Bitcoin Writer Help', shortcut: '⌘?', action: () => alert('Bitcoin Writer v2.0\n\nWrite, encrypt, and store documents on the Bitcoin blockchain') },
+        { label: 'Bitcoin Calendar Help', shortcut: '⌘?', action: () => alert('Bitcoin Calendar v2.0\n\nWrite, encrypt, and store documents on the Bitcoin blockchain') },
         { label: 'Keyboard Shortcuts', action: () => setShowKeyboardShortcuts(true) },
         { divider: true },
         { label: 'Sign Up for Updates', href: '/signup' },
         { label: 'Release Notes', href: '/releases' },
         { label: 'What\'s New', action: () => alert('What\'s New in v2.0:\n\n• Multi-provider authentication\n• NFT tokenization\n• File shares\n• Twitter integration\n• Enhanced encryption') },
         { divider: true },
-        { label: 'Report an Issue', href: 'https://github.com/bitcoin-apps-suite/bitcoin-writer/issues' },
+        { label: 'Report an Issue', href: 'https://github.com/bitcoin-apps-suite/bitcoin-calendar/issues' },
         { label: 'Contact @b0ase', href: 'https://twitter.com/b0ase' },
         { divider: true },
         { label: 'Follow @bitcoin_writer', href: 'https://x.com/bitcoin_writer' }
@@ -1146,7 +1146,7 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
           
           {/* GitHub Icon */}
           <a
-            href="https://github.com/bitcoin-apps-suite/bitcoin-writer"
+            href="https://github.com/bitcoin-apps-suite/bitcoin-calendar"
             target="_blank"
             rel="noopener noreferrer"
             style={{

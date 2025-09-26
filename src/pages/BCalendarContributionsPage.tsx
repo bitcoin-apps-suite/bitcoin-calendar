@@ -186,7 +186,7 @@ const BCalendarContributionsPage: React.FC = () => {
     // Exchange & Trading Features
     {
       id: '10',
-      title: 'Bitcoin Writer Exchange',
+      title: 'Bitcoin Calendar Exchange',
       description: 'Build decentralized exchange for trading document shares and NFTs with order book and liquidity pools',
       difficulty: 'expert',
       tokenReward: 0.5,

@@ -25,7 +25,7 @@ const BitcoinAppsView: React.FC<BitcoinAppsViewProps> = ({ isOpen, onClose }) =>
       icon: '📊'
     },
     {
-      name: 'Bitcoin Writer',
+      name: 'Bitcoin Calendar',
       description: 'Write, encrypt, and store documents on Bitcoin. Set paywalls, multisig conditions, and timelock access.',
       url: 'https://bitcoin-writer.vercel.app',
       color: '#ff9500',
@@ -125,7 +125,7 @@ const BitcoinAppsView: React.FC<BitcoinAppsViewProps> = ({ isOpen, onClose }) =>
                 Bitcoin Sheets
               </a>
               <a href="https://bitcoin-writer.vercel.app" target="_blank" rel="noopener noreferrer">
-                Bitcoin Writer
+                Bitcoin Calendar
               </a>
             </div>
             <p className="built-with">

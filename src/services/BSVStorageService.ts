@@ -355,7 +355,7 @@ export class BSVStorageService {
       // Create data transaction payload for HandCash
       // HandCash Connect API expects specific format for data transactions
       const dataPayload = {
-        description: 'Bitcoin Writer Document Storage',
+        description: 'Bitcoin Calendar Document Storage',
         data: [
           {
             value: data.toString('hex'),

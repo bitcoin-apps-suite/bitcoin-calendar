@@ -48,7 +48,7 @@ const ContactPage: React.FC = () => {
       ),
       title: "Email Support",
       description: "For private inquiries or sensitive issues",
-      link: "mailto:support@bitcoin-writer.com",
+      link: "mailto:support@bitcoin-calendar.com",
       buttonText: "Send Email"
     },
     {
@@ -58,8 +58,8 @@ const ContactPage: React.FC = () => {
         </svg>
       ),
       title: "Community Forum",
-      description: "Join discussions with other Bitcoin Writer users",
-      link: "https://community.bitcoin-writer.com",
+      description: "Join discussions with other Bitcoin Calendar users",
+      link: "https://community.bitcoin-calendar.com",
       buttonText: "Visit Forum"
     },
     {
@@ -85,8 +85,8 @@ const ContactPage: React.FC = () => {
       answer: "Please include: (1) Steps to reproduce the issue, (2) Expected vs actual behavior, (3) Browser and OS information, (4) Screenshots if relevant, (5) Any error messages from the console."
     },
     {
-      question: "Can I contribute to Bitcoin Writer?",
-      answer: "Yes! Bitcoin Writer is open-source. Check our GitHub repository for contribution guidelines. We welcome code contributions, documentation improvements, and feature suggestions."
+      question: "Can I contribute to Bitcoin Calendar?",
+      answer: "Yes! Bitcoin Calendar is open-source. Check our GitHub repository for contribution guidelines. We welcome code contributions, documentation improvements, and feature suggestions."
     },
     {
       question: "Is there a Discord or Telegram community?",
@@ -98,7 +98,7 @@ const ContactPage: React.FC = () => {
     },
     {
       question: "What about security vulnerabilities?",
-      answer: "For security issues, please email us directly at security@bitcoin-writer.com instead of creating a public issue. We take security seriously and will respond promptly."
+      answer: "For security issues, please email us directly at security@bitcoin-calendar.com instead of creating a public issue. We take security seriously and will respond promptly."
     }
   ];
 
@@ -180,12 +180,12 @@ const ContactPage: React.FC = () => {
         <section className="legal-section">
           <h2>For Developers</h2>
           <p>
-            If you're interested in integrating with Bitcoin Writer or building on our platform:
+            If you're interested in integrating with Bitcoin Calendar or building on our platform:
           </p>
           <ul>
             <li><strong>API Documentation:</strong> Available on our GitHub Wiki</li>
             <li><strong>Developer Discord:</strong> Join technical discussions</li>
-            <li><strong>Integration Support:</strong> developer@bitcoin-writer.com</li>
+            <li><strong>Integration Support:</strong> developer@bitcoin-calendar.com</li>
           </ul>
         </section>
 
@@ -196,9 +196,9 @@ const ContactPage: React.FC = () => {
             For partnerships, enterprise solutions, or media inquiries:
           </p>
           <ul>
-            <li><strong>Partnerships:</strong> partnerships@bitcoin-writer.com</li>
-            <li><strong>Enterprise:</strong> enterprise@bitcoin-writer.com</li>
-            <li><strong>Media/Press:</strong> press@bitcoin-writer.com</li>
+            <li><strong>Partnerships:</strong> partnerships@bitcoin-calendar.com</li>
+            <li><strong>Enterprise:</strong> enterprise@bitcoin-calendar.com</li>
+            <li><strong>Media/Press:</strong> press@bitcoin-calendar.com</li>
           </ul>
         </section>
 
@@ -208,7 +208,7 @@ const ContactPage: React.FC = () => {
             <p><strong>⚠️ Security Issues:</strong></p>
             <p>
               If you discover a security vulnerability, please DO NOT create a public issue. 
-              Email us directly at <strong>security@bitcoin-writer.com</strong> with details. 
+              Email us directly at <strong>security@bitcoin-calendar.com</strong> with details. 
               We offer bug bounties for responsibly disclosed vulnerabilities.
             </p>
           </div>

@@ -119,7 +119,7 @@ const ContractsPage: React.FC = () => {
         // Handle both old and new format
         let priorityMatch = body.match(/\*\*Priority:\*\*\s*(Critical|High|Medium|Low)/i);
         let hoursMatch = body.match(/\*\*Estimated Hours:\*\*\s*([\d,]+)/i);
-        let rewardMatch = body.match(/\*\*Token Reward:\*\*\s*([\d,]+)\s*BWRITER/i);
+        let rewardMatch = body.match(/\*\*Token Reward:\*\*\s*([\d,]+)\s*BCAL/i);
         let categoryMatch = body.match(/\*\*Category:\*\*\s*([^\n]+)/i);
         
         // Find matching PR if exists
@@ -224,7 +224,7 @@ const ContractsPage: React.FC = () => {
           githubIssueUrl: issue.html_url,
           title: issue.title,
           description: description,
-          reward: rewardMatch ? `${rewardMatch[1]} BWRITER` : '2,000 BWRITER',
+          reward: rewardMatch ? `${rewardMatch[1]} BCAL` : '2,000 BCAL',
           estimatedHours: hoursMatch ? parseInt(hoursMatch[1].replace(/,/g, '')) : 8,
           priority: (priorityMatch ? priorityMatch[1] : 'Medium') as Contract['priority'],
           category: category,
@@ -254,7 +254,7 @@ const ContractsPage: React.FC = () => {
         {
           id: 'github-redirect',
           githubIssueNumber: 0,
-          githubIssueUrl: 'https://github.com/bitcoin-apps-suite/bitcoin-writer/issues',
+          githubIssueUrl: 'https://github.com/bitcoin-apps-suite/bitcoin-calendar/issues',
           title: '📋 View Contracts on GitHub',
           description: 'Unable to load contracts from GitHub API. This may be due to rate limiting or network issues. Click below to view all available contracts directly on GitHub.',
           priority: 'Low' as const,
@@ -340,11 +340,11 @@ const ContractsPage: React.FC = () => {
         <div className="contracts-container">
           {/* Hero Section */}
           <section className="contracts-hero">
-            <h1>Bitcoin Writer <span style={{color: '#ffffff'}}>Contracts</span></h1>
+            <h1>Bitcoin Calendar <span style={{color: '#ffffff'}}>Contracts</span></h1>
             <p className="contracts-tagline">
               {activeTab === 'developer' 
-                ? 'Claim contracts, deliver code, earn BWRITER tokens'
-                : 'Create content, fulfill contracts, get paid in BWRITER'}
+                ? 'Claim contracts, deliver code, earn BCAL tokens'
+                : 'Create content, fulfill contracts, get paid in BCAL'}
             </p>
             <div className="contracts-badge">CONTRACTS</div>
           </section>

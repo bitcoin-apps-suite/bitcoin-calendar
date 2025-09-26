@@ -161,7 +161,7 @@ function App() {
   // Set app title when running in Bitcoin OS
   useEffect(() => {
     if (isInOS) {
-      setTitle('Bitcoin Writer');
+      setTitle('Bitcoin Calendar');
     }
   }, [isInOS, setTitle]);
 
@@ -329,7 +329,7 @@ function App() {
 
         <Routes>
       <Route path="/auth/handcash/callback" element={<HandCashCallback />} />
-      <Route path="/bitcoin-writer/bap" element={<BapPage />} />
+      <Route path="/calendar/bap" element={<BapPage />} />
       <Route path="/features" element={<FeaturesPage />} />
       <Route path="/token" element={<TokenPage />} />
       <Route path="/tasks" element={<TasksPage />} />
@@ -376,7 +376,7 @@ function App() {
       <Route path="/*" element={
         isLoading ? (
           <div className="App">
-            <div className="loading">Loading Bitcoin Writer...</div>
+            <div className="loading">Loading Bitcoin Calendar...</div>
           </div>
         ) : (
           <div className="App">
@@ -398,21 +398,21 @@ function App() {
                       <div className="bitcoin-menu">
                         <div className="menu-header">
                           <div className="bitcoin-logo-small">₿</div>
-                          <span>Bitcoin Writer</span>
+                          <span>Bitcoin Calendar</span>
                         </div>
                         <div className="menu-separator" />
                         <div className="menu-item" onClick={() => {
                           window.location.href = '/';
                           setShowBitcoinMenu(false);
                         }}>
-                          <span>📝</span> Bitcoin Writer
+                          <span>📅</span> Bitcoin Calendar
                         </div>
                         <div className="menu-separator" />
                         <div className="menu-item" onClick={() => {
-                          alert('Bitcoin Writer v1.0\n\nSecure blockchain document writing platform\n\n© 2025 The Bitcoin Corporation LTD\nBuilt on Bitcoin SV blockchain');
+                          alert('Bitcoin Calendar v1.0\n\nDecentralized calendar and event management platform\n\n© 2025 The Bitcoin Corporation LTD\nBuilt on Bitcoin SV blockchain');
                           setShowBitcoinMenu(false);
                         }}>
-                          <span>ℹ️</span> About Bitcoin Writer
+                          <span>ℹ️</span> About Bitcoin Calendar
                         </div>
                         <div className="menu-separator" />
                         {isAuthenticated && (
@@ -434,7 +434,7 @@ function App() {
                     onClick={() => setShowWriterMenu(!showWriterMenu)}
                     aria-label="Writer Menu"
                   >
-                    Bitcoin Writer
+                    Bitcoin Calendar
                   </button>
                   {showWriterMenu && (
                     <>
@@ -527,13 +527,13 @@ function App() {
                         </div>
                         <div className="menu-separator" />
                         <div className="menu-item" onClick={() => {
-                          window.open('/bitcoin-writer/bap', '_blank');
+                          window.open('/calendar/bap', '_blank');
                           setShowDevelopersMenu(false);
                         }}>
                           <span>📑</span> BAP Executive Summary
                         </div>
                         <div className="menu-item" onClick={() => {
-                          window.open('https://github.com/bitcoin-apps-suite/bitcoin-writer', '_blank');
+                          window.open('https://github.com/bitcoin-apps-suite/bitcoin-calendar', '_blank');
                           setShowDevelopersMenu(false);
                         }}>
                           <span>📂</span> GitHub Repository
@@ -559,7 +559,7 @@ function App() {
                         </div>
                         <div className="menu-separator" />
                         <div className="menu-item" onClick={() => {
-                          alert('Bitcoin Writer API\n\nEndpoints:\n• POST /api/documents - Create document\n• GET /api/documents - List documents\n• GET /api/documents/:id - Get document\n• DELETE /api/documents/:id - Delete document\n\nBuilt on Bitcoin SV blockchain');
+                          alert('Bitcoin Calendar API\n\nEndpoints:\n• POST /api/events - Create event\n• GET /api/events - List events\n• GET /api/events/:id - Get event\n• DELETE /api/events/:id - Delete event\n\nBuilt on Bitcoin SV blockchain');
                           setShowDevelopersMenu(false);
                         }}>
                           <span>🔌</span> API Documentation
@@ -594,7 +594,7 @@ function App() {
                 <div className="app-title-container">
                   <img 
                     src="/logo.svg" 
-                    alt="Bitcoin Writer Logo" 
+                    alt="Bitcoin Calendar Logo" 
                     className="app-logo"
                     style={{
                       width: '32px',

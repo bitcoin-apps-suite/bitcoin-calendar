@@ -43,7 +43,7 @@ const crypto = {
 };
 
 export class BitcoinWriterNFTService implements NFTService {
-  private readonly MAGIC_NUMBER = 'BWNF'; // Bitcoin Writer NFT
+  private readonly MAGIC_NUMBER = 'BWNF'; // Bitcoin Calendar NFT
   private readonly VERSION = '1.0';
   private readonly HEADER_SIZE = 256;
   

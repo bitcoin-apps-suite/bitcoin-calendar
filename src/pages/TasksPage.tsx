@@ -90,7 +90,7 @@ const TasksPage: React.FC = () => {
         // Old format: **Priority:**
         let priorityMatch = body.match(/\*\*Priority:\*\*\s*(Critical|High|Medium|Low)/i);
         let hoursMatch = body.match(/\*\*Estimated Hours:\*\*\s*([\d,]+)/i);
-        let rewardMatch = body.match(/\*\*Token Reward:\*\*\s*([\d,]+)\s*BWRITER/i);
+        let rewardMatch = body.match(/\*\*Token Reward:\*\*\s*([\d,]+)\s*BCAL/i);
         let categoryMatch = body.match(/\*\*Category:\*\*\s*([^\n]+)/i);
         
         // Extract description - new format with emoji headers
@@ -165,7 +165,7 @@ const TasksPage: React.FC = () => {
           description: description,
           difficulty,
           category,
-          reward: rewardMatch ? `${rewardMatch[1]} BWRITER` : '2,000 BWRITER',
+          reward: rewardMatch ? `${rewardMatch[1]} BCAL` : '2,000 BCAL',
           status: issue.assignee ? 'in_progress' : 'available',
           skills: Array.from(new Set(skills)), // Remove duplicates
           deliverables: deliverables.length > 0 ? deliverables.slice(0, 5) : ['See issue for details'], // Limit to 5 items
@@ -192,7 +192,7 @@ const TasksPage: React.FC = () => {
           status: 'available',
           skills: ['Visit GitHub'],
           deliverables: ['View and claim tasks on GitHub', 'Create new issues', 'Discuss bounties'],
-          githubIssueUrl: 'https://github.com/bitcoin-apps-suite/bitcoin-writer/issues',
+          githubIssueUrl: 'https://github.com/bitcoin-apps-suite/bitcoin-calendar/issues',
           estimatedHours: 0
         }
       ]);
@@ -227,14 +227,14 @@ const TasksPage: React.FC = () => {
         <div className="tasks-container">
           {/* Hero Section */}
           <section className="tasks-hero">
-            <h1>Bitcoin Writer <span style={{color: '#ffffff'}}>Tasks</span></h1>
+            <h1>Bitcoin Calendar <span style={{color: '#ffffff'}}>Tasks</span></h1>
             <p className="tasks-tagline">
-              Contribute to Bitcoin Writer and earn BWRITER tokens
+              Contribute to Bitcoin Calendar and earn BCAL tokens
             </p>
             <div className="hero-actions">
               <div className="tasks-badge">TASKS</div>
               <a 
-                href="https://github.com/bitcoin-apps-suite/bitcoin-writer/issues/new"
+                href="https://github.com/bitcoin-apps-suite/bitcoin-calendar/issues/new"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="create-issue-button"

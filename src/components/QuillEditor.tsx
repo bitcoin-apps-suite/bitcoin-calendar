@@ -425,7 +425,7 @@ const QuillEditor: React.FC<QuillEditorProps> = ({
           isOpen={showSaveModal}
           onClose={() => setShowSaveModal(false)}
           onSave={handleSaveToBlockchain}
-          documentTitle="Bitcoin Writer Document"
+          documentTitle="Bitcoin Calendar Document"
           wordCount={getWordCount()}
           estimatedSize={getEstimatedSize()}
           isAuthenticated={handcashService.isAuthenticated()}

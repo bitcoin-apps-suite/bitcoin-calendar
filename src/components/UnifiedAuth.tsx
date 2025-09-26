@@ -109,7 +109,7 @@ const UnifiedAuth: React.FC<UnifiedAuthProps> = ({
       setTimeout(() => {
         const mockTwitterUser = {
           username: 'bitcoin_writer',
-          name: 'Bitcoin Writer',
+          name: 'Bitcoin Calendar',
           profile_image_url: 'https://pbs.twimg.com/profile_images/1844449428127928320/C0dTi8M4_400x400.jpg'
         };
         setTwitterUser(mockTwitterUser);

@@ -115,7 +115,7 @@ const DeveloperContractsPage: React.FC = () => {
         
         let priorityMatch = body.match(/\*\*Priority:\*\*\s*(Critical|High|Medium|Low)/i);
         let hoursMatch = body.match(/\*\*Estimated Hours:\*\*\s*([\d,]+)/i);
-        let rewardMatch = body.match(/\*\*Token Reward:\*\*\s*([\d,]+)\s*BWRITER/i);
+        let rewardMatch = body.match(/\*\*Token Reward:\*\*\s*([\d,]+)\s*BCAL/i);
         
         // Find matching PR if exists
         const matchingPR = pullRequests.find((pr: any) => 
@@ -203,7 +203,7 @@ const DeveloperContractsPage: React.FC = () => {
           githubIssueUrl: issue.html_url,
           title: issue.title,
           description: description,
-          reward: rewardMatch ? `${rewardMatch[1]} BWRITER` : '2,000 BWRITER',
+          reward: rewardMatch ? `${rewardMatch[1]} BCAL` : '2,000 BCAL',
           estimatedHours: hoursMatch ? parseInt(hoursMatch[1].replace(/,/g, '')) : 8,
           priority: (priorityMatch ? priorityMatch[1] : 'Medium') as Contract['priority'],
           category: 'developer' as const,
@@ -234,7 +234,7 @@ const DeveloperContractsPage: React.FC = () => {
       setContracts([{
         id: 'github-redirect',
         githubIssueNumber: 0,
-        githubIssueUrl: 'https://github.com/bitcoin-apps-suite/bitcoin-writer/issues',
+        githubIssueUrl: 'https://github.com/bitcoin-apps-suite/bitcoin-calendar/issues',
         title: '📋 View Developer Contracts on GitHub',
         description: 'Unable to load contracts from GitHub API. Click to view all available developer contracts directly on GitHub.',
         priority: 'Low' as const,
@@ -321,7 +321,7 @@ const DeveloperContractsPage: React.FC = () => {
           <section className="contracts-hero">
             <h1>Developer <span style={{color: '#ffffff'}}>Contracts</span></h1>
             <p className="contracts-tagline">
-              Build features, fix bugs, earn BWRITER tokens
+              Build features, fix bugs, earn BCAL tokens
             </p>
             <div className="contracts-badge">DEVELOPER</div>
           </section>

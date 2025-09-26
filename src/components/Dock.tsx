@@ -45,7 +45,7 @@ const Dock: React.FC = () => {
     { name: 'Bitcoin Wallet', icon: Wallet, color: 'text-yellow-500', url: 'http://localhost:1050' },
     { name: 'Bitcoin Email', icon: Mail, color: 'text-red-500', url: 'https://bitcoin-email.vercel.app' },
     { name: 'Bitcoin Music', icon: Music, color: 'text-purple-500', url: 'https://bitcoin-music.vercel.app' },
-    { name: 'Bitcoin Writer', icon: FileText, color: 'text-orange-500', url: 'https://bitcoin-writer.vercel.app' },
+    { name: 'Bitcoin Calendar', icon: FileText, color: 'text-orange-500', url: 'https://bitcoin-writer.vercel.app' },
     { name: 'Bitcoin Drive', icon: HardDrive, color: 'text-green-500', url: 'https://bitcoin-drive.vercel.app' },
     { name: 'Bitcoin Calendar', icon: Calendar, color: 'text-red-500', url: 'https://bitcoin-calendar.vercel.app', current: true },
     { name: 'Bitcoin Search', icon: Search, color: 'text-gray-500', url: 'https://bitcoin-search.vercel.app', disabled: true },

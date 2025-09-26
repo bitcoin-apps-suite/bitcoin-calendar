@@ -39,16 +39,16 @@ const ProTaskbar: React.FC<TaskbarProps> = ({ isAuthenticated, currentUser, onLo
 
       {/* Menu Items */}
       <div className="taskbar-menus">
-        {/* Bitcoin Writer Menu */}
+        {/* Bitcoin Calendar Menu */}
         <div 
           className={`menu-item ${activeMenu === 'app' ? 'active' : ''}`}
           onClick={() => handleMenuClick('app')}
           onMouseEnter={() => handleMenuHover('app')}
         >
-          <span className="menu-title">Bitcoin Writer</span>
+          <span className="menu-title">Bitcoin Calendar</span>
           {activeMenu === 'app' && (
             <div className="menu-dropdown">
-              <div className="dropdown-item">About Bitcoin Writer</div>
+              <div className="dropdown-item">About Bitcoin Calendar</div>
               <div className="dropdown-divider" />
               <div className="dropdown-item">
                 <span>Preferences...</span>
@@ -56,7 +56,7 @@ const ProTaskbar: React.FC<TaskbarProps> = ({ isAuthenticated, currentUser, onLo
               </div>
               <div className="dropdown-divider" />
               <div className="dropdown-item">
-                <span>Hide Bitcoin Writer</span>
+                <span>Hide Bitcoin Calendar</span>
                 <span className="shortcut">⌘H</span>
               </div>
               <div className="dropdown-item">
@@ -66,7 +66,7 @@ const ProTaskbar: React.FC<TaskbarProps> = ({ isAuthenticated, currentUser, onLo
               <div className="dropdown-item">Show All</div>
               <div className="dropdown-divider" />
               <div className="dropdown-item" onClick={onLogout}>
-                <span>Quit Bitcoin Writer</span>
+                <span>Quit Bitcoin Calendar</span>
                 <span className="shortcut">⌘Q</span>
               </div>
             </div>
@@ -221,7 +221,7 @@ const ProTaskbar: React.FC<TaskbarProps> = ({ isAuthenticated, currentUser, onLo
           <span className="menu-title">Help</span>
           {activeMenu === 'help' && (
             <div className="menu-dropdown">
-              <div className="dropdown-item">Bitcoin Writer Help</div>
+              <div className="dropdown-item">Bitcoin Calendar Help</div>
             </div>
           )}
         </div>
