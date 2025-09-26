@@ -37,7 +37,7 @@
   flex-wrap: wrap;
   gap: 20px;
   position: sticky;
-  top: 62px; /* Account for POC bar (40px) + taskbar (22px) */
+  top: 102px; /* Account for POC bar (40px) + taskbar (22px) + App-header (40px) */
   z-index: 100;
 }
 
@@ -120,7 +120,7 @@
   padding: 20px;
   height: fit-content;
   position: sticky;
-  top: 134px; /* Header height + POC + taskbar */
+  top: 174px; /* Header height + POC + taskbar + App-header */
 }
 
 .category-sidebar h3 {

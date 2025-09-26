@@ -837,7 +837,26 @@ const ExchangePage: React.FC<ExchangePageProps> = ({ isAuthenticated, currentUse
 
   return (
     <div className={`exchange-page ${!isMobile && !devSidebarCollapsed ? 'sidebar-expanded' : ''} ${!isMobile && devSidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
-      <div className="exchange-header">
+      <header className="App-header">
+        <div className="desktop-header-wrapper">
+          <h1
+            className="app-title"
+            style={{
+              fontSize: '2.2rem',
+              fontWeight: 'bold',
+              marginRight: '10px',
+              cursor: 'pointer'
+            }}
+          >
+            <span style={{color: '#8b5cf6'}}>Bitcoin</span> Calendar
+          </h1>
+          <p className="app-subtitle" style={{ color: '#999', fontSize: '1rem' }}>
+            Mint your calendar on the blockchain, charge for access, securitize its revenue flow and trade calendar shares on the $BCAL exchange
+          </p>
+        </div>
+      </header>
+
+      <div className="exchange-header" style={{ top: '102px' }}>
         <div className="title-section">
           <Calendar className="page-icon" size={32} />
           <div>

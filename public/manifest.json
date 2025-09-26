@@ -1,11 +1,11 @@
 {
-  "name": "Bitcoin Writer",
-  "short_name": "Writer",
-  "description": "Professional Document Editor on BSV Blockchain",
+  "name": "Bitcoin Calendar",
+  "short_name": "Calendar",
+  "description": "Mint Calendars as NFTs on the Blockchain",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#FF8C00",
+  "theme_color": "#8b5cf6",
   "orientation": "portrait-primary",
   "scope": "/",
   "categories": [
