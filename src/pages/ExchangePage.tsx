@@ -856,18 +856,16 @@ const ExchangePage: React.FC<ExchangePageProps> = ({ isAuthenticated, currentUse
         </div>
       </header>
 
-      <div className="exchange-header" style={{ top: '102px' }}>
-        <div className="title-section">
-          <Calendar className="page-icon" size={32} />
-          <div>
-            <h1 className="page-title">Calendar Exchange</h1>
-            <p className="page-subtitle">
-              Trade calendar shares • {calendarListings.length} calendars listed
-              <span className="status-live" style={{ color: '#10b981', marginLeft: '12px' }}>
-                ● LIVE
-              </span>
-            </p>
-          </div>
+      <div className="exchange-subheader">
+        <div className="subheader-info">
+          <Calendar className="page-icon" size={24} />
+          <h2 className="page-title">Calendar Exchange</h2>
+          <span className="page-subtitle">
+            Trade calendar shares • {calendarListings.length} calendars listed
+          </span>
+          <span className="status-live" style={{ color: '#10b981', marginLeft: '12px' }}>
+            ● LIVE
+          </span>
         </div>
 
         <div className="header-controls">
