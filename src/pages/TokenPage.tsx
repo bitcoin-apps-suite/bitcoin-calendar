@@ -1,15 +1,23 @@
+'use client'
+
 import React, { useState, useEffect } from 'react';
 import './TokenPage.css';
 import Footer from '../components/Footer';
 
 const TokenPage: React.FC = () => {
-  const [devSidebarCollapsed, setDevSidebarCollapsed] = useState(() => {
-    const saved = localStorage.getItem('devSidebarCollapsed');
-    return saved === 'true';
-  });
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isHydrated, setIsHydrated] = useState(false);
+  const [devSidebarCollapsed, setDevSidebarCollapsed] = useState(true); // Default to collapsed for SSR
+  const [isMobile, setIsMobile] = useState(false); // Default to desktop for SSR
 
   useEffect(() => {
+    // Initialize client-side values after hydration
+    const initializeClientState = () => {
+      const saved = localStorage.getItem('devSidebarCollapsed');
+      setDevSidebarCollapsed(saved === 'true');
+      setIsMobile(window.innerWidth <= 768);
+      setIsHydrated(true);
+    };
+
     // Listen for storage changes to detect sidebar collapse state
     const handleStorageChange = () => {
       const saved = localStorage.getItem('devSidebarCollapsed');
@@ -20,6 +28,9 @@ const TokenPage: React.FC = () => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
+    
+    // Initialize on mount
+    initializeClientState();
     
     window.addEventListener('storage', handleStorageChange);
     window.addEventListener('resize', handleResize);
@@ -39,7 +50,7 @@ const TokenPage: React.FC = () => {
 
   return (
     <div className="App">
-      <div className={`token-page ${!isMobile && !devSidebarCollapsed ? 'with-sidebar-expanded' : ''} ${!isMobile && devSidebarCollapsed ? 'with-sidebar-collapsed' : ''}`}>
+      <div className={`token-page ${isHydrated && !isMobile && !devSidebarCollapsed ? 'with-sidebar-expanded' : ''} ${isHydrated && !isMobile && devSidebarCollapsed ? 'with-sidebar-collapsed' : ''}`}>
       <div className="token-container">
         {/* Hero Section */}
         <section className="token-hero">

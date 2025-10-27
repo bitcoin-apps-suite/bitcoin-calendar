@@ -13,19 +13,9 @@ interface SharedLayoutProps {
 }
 
 const SharedLayout: React.FC<SharedLayoutProps> = ({ children }) => {
-  const [devSidebarCollapsed, setDevSidebarCollapsed] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('devSidebarCollapsed')
-      return saved === 'true'
-    }
-    return false
-  })
-  const [isMobile, setIsMobile] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.innerWidth <= 768
-    }
-    return false
-  })
+  const [isHydrated, setIsHydrated] = useState(false)
+  const [devSidebarCollapsed, setDevSidebarCollapsed] = useState(true) // Default to collapsed for SSR
+  const [isMobile, setIsMobile] = useState(false) // Default to desktop for SSR
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [currentUser, setCurrentUser] = useState<HandCashUser | null>(null)
   const [showAIChat, setShowAIChat] = useState(false)
@@ -33,10 +23,14 @@ const SharedLayout: React.FC<SharedLayoutProps> = ({ children }) => {
   // Check if running in Bitcoin OS
   const isInOS = typeof window !== 'undefined' && (window as any).BitcoinOS
 
-  // Handle window resize
+  // Handle window resize and hydration
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      // Initialize client-side values after hydration
+      const saved = localStorage.getItem('devSidebarCollapsed')
+      setDevSidebarCollapsed(saved === 'true')
       setIsMobile(window.innerWidth <= 768)
+      setIsHydrated(true)
       
       const handleResize = () => {
         setIsMobile(window.innerWidth <= 768)
@@ -109,7 +103,7 @@ const SharedLayout: React.FC<SharedLayoutProps> = ({ children }) => {
       />
       
       {/* Main content */}
-      <div className={`main-content ${!isMobile && !devSidebarCollapsed ? 'with-sidebar-expanded' : ''} ${!isMobile && devSidebarCollapsed ? 'with-sidebar-collapsed' : ''}`}>
+      <div className={`main-content ${isHydrated && !isMobile && !devSidebarCollapsed ? 'with-sidebar-expanded' : ''} ${isHydrated && !isMobile && devSidebarCollapsed ? 'with-sidebar-collapsed' : ''}`}>
         {children}
       </div>
       
