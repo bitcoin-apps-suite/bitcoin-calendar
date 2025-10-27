@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { GoogleAuthProvider } from './GoogleAuth'
 import DevSidebar from './DevSidebar'
 import CleanTaskbar from './CleanTaskbar'
-import MinimalDock from '../../../components/MinimalDock'
+import DockManager from './DockManager'
 import ServiceWorkerRegistration from './ServiceWorkerRegistration'
 import { HandCashService, HandCashUser } from '../services/HandCashService'
 
@@ -112,8 +112,8 @@ const SharedLayout: React.FC<SharedLayoutProps> = ({ children }) => {
         {children}
       </div>
       
-      {/* Minimal Dock - Only show when not running in Bitcoin OS */}
-      {!isInOS && <MinimalDock />}
+      {/* Dock Manager - Only show when not running in Bitcoin OS */}
+      {!isInOS && <DockManager />}
     </GoogleAuthProvider>
   )
 }
