@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Flower2, DollarSign, Cpu, GraduationCap, Users, Wrench, Zap } from 'lucide-react';
 import './GrantsPage.css';
 import Footer from '../components/Footer';
@@ -142,7 +142,7 @@ const GrantsPage: React.FC = () => {
             </p>
             
             <div className="categories-grid">
-              <Link to="/developers/grants" className="category-card developer-card">
+              <Link href="/developers/grants" className="category-card developer-card">
                 <div className="category-header">
                   <h3><Cpu size={20} style={{marginRight: '8px', verticalAlign: 'middle'}} />Developer Grants</h3>
                   <div className="category-badge">APPLY NOW</div>
@@ -159,7 +159,7 @@ const GrantsPage: React.FC = () => {
                 <div className="category-cta">View Developer Opportunities →</div>
               </Link>
 
-              <Link to="/authors/grants" className="category-card author-card">
+              <Link href="/authors/grants" className="category-card author-card">
                 <div className="category-header">
                   <h3><Users size={20} style={{marginRight: '8px', verticalAlign: 'middle'}} />Author Grants</h3>
                   <div className="category-badge">APPLY NOW</div>
@@ -176,7 +176,7 @@ const GrantsPage: React.FC = () => {
                 <div className="category-cta">View Writing Opportunities →</div>
               </Link>
 
-              <Link to="/publishers/grants" className="category-card publisher-card">
+              <Link href="/publishers/grants" className="category-card publisher-card">
                 <div className="category-header">
                   <h3><Flower2 size={20} style={{marginRight: '8px', verticalAlign: 'middle'}} />Publisher Grants</h3>
                   <div className="category-badge">APPLY NOW</div>
@@ -235,13 +235,13 @@ const GrantsPage: React.FC = () => {
                 submit your proposal for $BCAL token grant consideration.
               </p>
               <div className="cta-buttons">
-                <Link to="/developers/grants" className="cta-button developer">
+                <Link href="/developers/grants" className="cta-button developer">
                   Apply as Developer
                 </Link>
-                <Link to="/authors/grants" className="cta-button author">
+                <Link href="/authors/grants" className="cta-button author">
                   Apply as Author
                 </Link>
-                <Link to="/publishers/grants" className="cta-button publisher">
+                <Link href="/publishers/grants" className="cta-button publisher">
                   Apply as Publisher
                 </Link>
               </div>

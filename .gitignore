@@ -23,7 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Environment files
-.env
+.env*
 
 # Old Electron files
 electron-backup/
@@ -78,3 +78,11 @@ IMPLEMENTATION-*.md
 ROADMAP*.md
 BUSINESS*.md
 REVENUE*.md
+
+# Environment files - NEVER commit these!
+.env
+.env.*
+.env*
+*.env
+.env copy.local
+.env.deployment

@@ -1,5 +1,8 @@
+'use client'
+
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { 
   Calendar, 
   GitBranch, 
@@ -31,18 +34,25 @@ interface DevSidebarProps {
 }
 
 const DevSidebar: React.FC<DevSidebarProps> = ({ onCollapsedChange }) => {
-  const [isCollapsed, setIsCollapsed] = useState(() => {
-    const saved = localStorage.getItem('devSidebarCollapsed');
-    // Default to collapsed if no preference is saved
-    return saved !== null ? saved === 'true' : true;
-  });
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const [issueCount, setIssueCount] = useState<number>(0);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
-    localStorage.setItem('devSidebarCollapsed', isCollapsed.toString());
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('devSidebarCollapsed', isCollapsed.toString());
+    }
     onCollapsedChange?.(isCollapsed);
   }, [isCollapsed, onCollapsedChange]);
+
+  // Initialize collapsed state from localStorage after mount
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('devSidebarCollapsed');
+      const initialCollapsed = saved !== null ? saved === 'true' : true;
+      setIsCollapsed(initialCollapsed);
+    }
+  }, []);
 
   useEffect(() => {
     // Fetch GitHub issue count
@@ -135,7 +145,7 @@ const DevSidebar: React.FC<DevSidebarProps> = ({ onCollapsedChange }) => {
           }
 
           const Icon = item.icon;
-          const isActive = location.pathname === item.path;
+          const isActive = pathname === item.path;
 
           if (item.external) {
             return (
@@ -161,7 +171,7 @@ const DevSidebar: React.FC<DevSidebarProps> = ({ onCollapsedChange }) => {
           return (
             <Link
               key={`${item.path}-${index}`}
-              to={item.path || '/'}
+              href={item.path || '/'}
               className={`dev-sidebar-item ${isActive ? 'active' : ''}`}
               title={isCollapsed ? item.label : undefined}
             >

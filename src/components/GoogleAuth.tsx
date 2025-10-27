@@ -149,9 +149,9 @@ export const GoogleAuthProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   }
 
   if (!clientId || clientId === 'YOUR_GOOGLE_CLIENT_ID_HERE') {
-    console.error('⚠️ Google Client ID not configured properly!');
-    console.error('Current value:', clientId || 'empty');
-    console.error('Please ensure REACT_APP_GOOGLE_CLIENT_ID is set in Vercel environment variables');
+    console.warn('⚠️ Google Client ID not configured properly!');
+    console.warn('Current value:', clientId || 'empty');
+    console.warn('Please ensure REACT_APP_GOOGLE_CLIENT_ID is set in Vercel environment variables');
     return <>{children}</>;
   }
 
