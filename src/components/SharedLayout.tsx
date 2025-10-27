@@ -52,8 +52,8 @@ const SharedLayout: React.FC<SharedLayoutProps> = ({ children }) => {
     if (typeof window !== 'undefined') {
       const initHandCash = async () => {
         try {
-          await HandCashService.initialize()
-          const user = await HandCashService.getCurrentUser()
+          const handCashService = new HandCashService()
+          const user = handCashService.getCurrentUser()
           if (user) {
             setCurrentUser(user)
             setIsAuthenticated(true)
@@ -70,7 +70,8 @@ const SharedLayout: React.FC<SharedLayoutProps> = ({ children }) => {
   const handleLogout = () => {
     setCurrentUser(null)
     setIsAuthenticated(false)
-    HandCashService.disconnect()
+    const handCashService = new HandCashService()
+    handCashService.logout()
   }
 
   return (
