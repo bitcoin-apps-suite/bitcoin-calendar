@@ -7,6 +7,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import SharedLayout from '../src/components/SharedLayout'
+import '../components/mobile/mobile-bwallet.css'
+import MobileShellInit from '../components/mobile/MobileShellInit'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <MobileShellInit />
         <SharedLayout>
           {children}
         </SharedLayout>
