@@ -8,7 +8,9 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { Calendar, Plus, Download, Upload, Lock, Unlock, Share2, Clock } from 'lucide-react';
+import { Plus, Upload, Lock, Clock } from 'lucide-react';
+import { Utils } from '@bsv/sdk';
+import { useWallet, wallet, publishRecord } from '../lib/bwallet';
 import Footer from '../components/Footer';
 import './CalendarPage.css';
 
@@ -18,47 +20,31 @@ interface CalendarEvent {
   start: string;
   end?: string;
   description?: string;
-  encrypted?: boolean;
-  nftTokenId?: string;
   creator?: string;
-  attendees?: string[];
+  txid?: string;
 }
 
 interface CalendarPageProps {
-  isAuthenticated: boolean;
-  currentUser: any;
   devSidebarCollapsed?: boolean;
   isMobile?: boolean;
 }
 
-const CalendarPage: React.FC<CalendarPageProps> = ({ isAuthenticated, currentUser, devSidebarCollapsed = false, isMobile = false }) => {
-  const [events, setEvents] = useState<CalendarEvent[]>([
-    {
-      id: '1',
-      title: 'Bitcoin Calendar Development Meeting',
-      start: '2025-09-26T10:00:00',
-      end: '2025-09-26T11:30:00',
-      description: 'Weekly development sync for Bitcoin Calendar app',
-      creator: 'team@bitcoincorp.com',
-      attendees: ['dev1@bitcoincorp.com', 'dev2@bitcoincorp.com']
-    },
-    {
-      id: '2',
-      title: '$BCALENDAR Token Launch',
-      start: '2025-10-01T14:00:00',
-      end: '2025-10-01T16:00:00',
-      description: 'Official launch of the $BCALENDAR token',
-      nftTokenId: 'nft_bcal_001'
-    },
-    {
-      id: '3',
-      title: 'Encrypted Private Meeting',
-      start: '2025-09-27T15:00:00',
-      end: '2025-09-27T16:00:00',
-      description: 'This event is encrypted',
-      encrypted: true
-    }
-  ]);
+const CalendarPage: React.FC<CalendarPageProps> = ({ devSidebarCollapsed = false, isMobile = false }) => {
+  const { user, connect, connecting } = useWallet();
+  const isAuthenticated = !!user;
+  const storeKey = `bcal:events:${user?.identityKey ?? 'guest'}`;
+  const [events, setEvents] = useState<CalendarEvent[]>([]);
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState('');
+
+  // Events live on this device (per wallet identity) until you save them on-chain.
+  useEffect(() => {
+    try { setEvents(JSON.parse(localStorage.getItem(storeKey) || '[]')); } catch { setEvents([]); }
+  }, [storeKey]);
+  const persist = (next: CalendarEvent[]) => {
+    setEvents(next);
+    try { localStorage.setItem(storeKey, JSON.stringify(next)); } catch {}
+  };
 
   const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null);
   const [showEventModal, setShowEventModal] = useState(false);
@@ -81,49 +67,64 @@ const CalendarPage: React.FC<CalendarPageProps> = ({ isAuthenticated, currentUse
         title,
         start: selectInfo.startStr,
         end: selectInfo.endStr,
-        creator: currentUser?.handle || 'anonymous',
+        creator: user?.name,
         description: ''
       };
-      setEvents([...events, newEvent]);
+      persist([...events, newEvent]);
     }
   };
 
-  const handleImportCalendar = () => {
-    // Placeholder for calendar import functionality
-    alert('Import functionality will support Google Calendar, Outlook, iCal, and other formats');
-  };
-
+  const icsDate = (d: string) => new Date(d).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  const icsText = (t: string) => t.replace(/[\\;,]/g, (m) => '\\' + m).replace(/\n/g, '\\n');
   const handleExportCalendar = () => {
-    // Placeholder for calendar export functionality
-    alert('Export functionality will support iCal, CSV, and other formats');
+    const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Bitcoin Calendar//EN'];
+    for (const e of events) {
+      lines.push('BEGIN:VEVENT', `UID:${e.id}@bitcoin-calendar`, `DTSTAMP:${icsDate(new Date().toISOString())}`, `DTSTART:${icsDate(e.start)}`);
+      if (e.end) lines.push(`DTEND:${icsDate(e.end)}`);
+      lines.push(`SUMMARY:${icsText(e.title)}`);
+      if (e.description) lines.push(`DESCRIPTION:${icsText(e.description)}`);
+      lines.push('END:VEVENT');
+    }
+    lines.push('END:VCALENDAR');
+    const url = URL.createObjectURL(new Blob([lines.join('\r\n')], { type: 'text/calendar' }));
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'bitcoin-calendar.ics';
+    a.click();
+    URL.revokeObjectURL(url);
   };
 
-  const handleEncryptEvent = (eventId: string) => {
-    setEvents(events.map(event => 
-      event.id === eventId 
-        ? { ...event, encrypted: !event.encrypted }
-        : event
-    ));
+  // Encrypt the event to your own wallet key, then write it on-chain. Your wallet shows the fee before you approve.
+  const handleSaveOnChain = async (event: CalendarEvent) => {
+    if (!user) { await connect(); return; }
+    setSaving(true);
+    setSaveError('');
+    try {
+      const plaintext = Utils.toArray(JSON.stringify({ title: event.title, start: event.start, end: event.end, description: event.description }), 'utf8');
+      const { ciphertext } = await wallet().encrypt({ plaintext, protocolID: [1, 'bitcoin calendar'], keyID: event.id });
+      const r = await publishRecord(['bCal', 'event', user.identityKey, event.id, Utils.toHex(ciphertext)], 'Bitcoin Calendar event');
+      const next = events.map((e) => (e.id === event.id ? { ...e, txid: r.txid } : e));
+      persist(next);
+      setSelectedEvent({ ...event, txid: r.txid });
+    } catch (e) {
+      setSaveError(e instanceof Error ? e.message : 'The wallet did not sign.');
+    } finally {
+      setSaving(false);
+    }
   };
 
-  const handleCreateNFT = (eventId: string) => {
-    // Placeholder for NFT creation
-    const tokenId = `nft_bcal_${Date.now()}`;
-    setEvents(events.map(event => 
-      event.id === eventId 
-        ? { ...event, nftTokenId: tokenId }
-        : event
-    ));
-    alert(`Event NFT created with token ID: ${tokenId}`);
+  const handleDeleteEvent = (eventId: string) => {
+    persist(events.filter((e) => e.id !== eventId));
+    setShowEventModal(false);
   };
 
   const calendarEvents = events.map(event => ({
     id: event.id,
-    title: event.encrypted ? '🔒 ' + event.title : event.title + (event.nftTokenId ? ' 🎨' : ''),
+    title: (event.txid ? '🔒 ' : '') + event.title,
     start: event.start,
     end: event.end,
-    backgroundColor: event.encrypted ? '#ff6b6b' : event.nftTokenId ? '#4ecdc4' : '#3498db',
-    borderColor: event.encrypted ? '#e55656' : event.nftTokenId ? '#45b7b8' : '#2980b9'
+    backgroundColor: event.txid ? '#b8860b' : '#3498db',
+    borderColor: event.txid ? '#F5B800' : '#2980b9'
   }));
 
   return (
@@ -148,23 +149,11 @@ const CalendarPage: React.FC<CalendarPageProps> = ({ isAuthenticated, currentUse
         
         {/* User info (top right) */}
         <div className="user-info desktop-user-info">
-          {isAuthenticated && currentUser ? (
-            <>
-              <div className="handcash-user-badge">
-                <img 
-                  src="https://handcash.io/favicon.ico" 
-                  alt="HandCash" 
-                  className="handcash-user-icon"
-                />
-                <span className="user-handle">@{currentUser.handle}</span>
-              </div>
-            </>
+          {user ? (
+            <span className="user-handle" title={user.identityKey}>{user.name}</span>
           ) : (
-            <button 
-              className="connect-btn"
-              onClick={() => alert('Connect your HandCash wallet to get started')}
-            >
-              Connect
+            <button className="connect-btn" onClick={() => void connect()} disabled={connecting}>
+              {connecting ? 'Connecting…' : 'Sign in with bWalletX'}
             </button>
           )}
         </div>
@@ -174,9 +163,8 @@ const CalendarPage: React.FC<CalendarPageProps> = ({ isAuthenticated, currentUse
         <div className="calendar-title-section">
           <div style={{ fontSize: '14px', color: 'rgba(255, 255, 255, 0.7)' }}>
             {events.length} events
-            {isAuthenticated && currentUser && (
-              <span className="user-info"> • Connected as ${currentUser.handle || 'User'}</span>
-            )}
+            {user && <span className="user-info"> • Signed in as {user.name}</span>}
+            {events.length === 0 && <span> • No events yet. Click a day to add one.</span>}
           </div>
         </div>
 
@@ -192,17 +180,8 @@ const CalendarPage: React.FC<CalendarPageProps> = ({ isAuthenticated, currentUse
 
           <button 
             className="action-btn secondary"
-            onClick={handleImportCalendar}
-            title="Import calendar from Google, Outlook, iCal"
-          >
-            <Download size={20} />
-            <span>Import</span>
-          </button>
-
-          <button 
-            className="action-btn secondary"
             onClick={handleExportCalendar}
-            title="Export calendar to iCal, CSV"
+            title="Download your events as an .ics file"
           >
             <Upload size={20} />
             <span>Export</span>
@@ -293,50 +272,24 @@ const CalendarPage: React.FC<CalendarPageProps> = ({ isAuthenticated, currentUse
                     </div>
                   )}
 
-                  {selectedEvent.attendees && selectedEvent.attendees.length > 0 && (
-                    <div className="event-attendees">
-                      <strong>Attendees:</strong>
-                      <ul>
-                        {selectedEvent.attendees.map((attendee, index) => (
-                          <li key={index}>{attendee}</li>
-                        ))}
-                      </ul>
+                  {selectedEvent.txid && (
+                    <div className="event-status">
+                      <span className="status-badge encrypted">
+                        🔒 Saved on-chain (encrypted):{' '}
+                        <a href={`https://whatsonchain.com/tx/${selectedEvent.txid}`} target="_blank" rel="noopener noreferrer">{selectedEvent.txid.slice(0, 12)}…</a>
+                      </span>
                     </div>
                   )}
-
-                  <div className="event-status">
-                    {selectedEvent.encrypted && (
-                      <span className="status-badge encrypted">🔒 Encrypted</span>
-                    )}
-                    {selectedEvent.nftTokenId && (
-                      <span className="status-badge nft">🎨 NFT: {selectedEvent.nftTokenId}</span>
-                    )}
-                  </div>
+                  {saveError && <p style={{ color: '#f87171' }}>{saveError}</p>}
                 </div>
 
                 <div className="modal-actions">
-                  <button 
-                    className="action-btn secondary"
-                    onClick={() => handleEncryptEvent(selectedEvent.id)}
-                  >
-                    {selectedEvent.encrypted ? <Unlock size={16} /> : <Lock size={16} />}
-                    <span>{selectedEvent.encrypted ? 'Decrypt' : 'Encrypt'}</span>
+                  <button className="action-btn primary" onClick={() => void handleSaveOnChain(selectedEvent)} disabled={saving || !!selectedEvent.txid}>
+                    <Lock size={16} />
+                    <span>{selectedEvent.txid ? 'Saved on-chain' : saving ? 'Waiting for wallet…' : user ? 'Save on-chain (private)' : 'Sign in to save on-chain'}</span>
                   </button>
-
-                  <button 
-                    className="action-btn secondary"
-                    onClick={() => handleCreateNFT(selectedEvent.id)}
-                    disabled={!!selectedEvent.nftTokenId}
-                  >
-                    <span>🎨 {selectedEvent.nftTokenId ? 'NFT Created' : 'Create NFT'}</span>
-                  </button>
-
-                  <button 
-                    className="action-btn secondary"
-                    onClick={() => alert('Share functionality coming soon')}
-                  >
-                    <Share2 size={16} />
-                    <span>Share</span>
+                  <button className="action-btn secondary" onClick={() => handleDeleteEvent(selectedEvent.id)}>
+                    <span>Remove from this device</span>
                   </button>
                 </div>
               </div>
@@ -351,16 +304,12 @@ const CalendarPage: React.FC<CalendarPageProps> = ({ isAuthenticated, currentUse
           <div className="stat-label">Total Events</div>
         </div>
         <div className="stat-card">
-          <div className="stat-value">{events.filter(e => e.encrypted).length}</div>
-          <div className="stat-label">Encrypted</div>
+          <div className="stat-value">{events.filter(e => e.txid).length}</div>
+          <div className="stat-label">Saved on-chain</div>
         </div>
         <div className="stat-card">
-          <div className="stat-value">{events.filter(e => e.nftTokenId).length}</div>
-          <div className="stat-label">NFT Events</div>
-        </div>
-        <div className="stat-card">
-          <div className="stat-value">{isAuthenticated ? 'Connected' : 'Disconnected'}</div>
-          <div className="stat-label">Blockchain Status</div>
+          <div className="stat-value">{isAuthenticated ? 'Signed in' : 'Not signed in'}</div>
+          <div className="stat-label">Wallet</div>
         </div>
       </div>
       

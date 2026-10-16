@@ -5,7 +5,7 @@ import EncryptionSettingsModal from './modals/EncryptionSettingsModal';
 import StorageCalculatorModal from './modals/StorageCalculatorModal';
 import KeyboardShortcutsModal from './modals/KeyboardShortcutsModal';
 import APIDocumentationModal from './modals/APIDocumentationModal';
-import { HandCashService } from '../services/HandCashService';
+import { connectWallet } from '../lib/bwallet';
 
 interface MenuItem {
   label?: string;
@@ -64,7 +64,7 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
           window.location.href = '/';
         }},
         { divider: true },
-        { label: 'About Bitcoin Calendar', action: () => alert('Bitcoin Calendar v2.0\n\nSchedule and manage events on the Bitcoin blockchain\n\n© 2025 The Bitcoin Corporation LTD\nRegistered in England and Wales • Company No. 16735102\nAll rights reserved\n\nBuilt with HandCash integration') },
+        { label: 'About Bitcoin Calendar', action: () => alert('Bitcoin Calendar v2.0\n\nSchedule and manage events on the Bitcoin blockchain\n\n© 2025 The Bitcoin Corporation LTD\nRegistered in England and Wales • Company No. 16735102\nAll rights reserved') },
         { label: 'Features', action: () => {
           const event = new CustomEvent('showFeaturesPage');
           window.dispatchEvent(event);
@@ -76,7 +76,7 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
         { label: 'Hide Bitcoin Calendar', shortcut: '⌘H', action: () => console.log('Hide') },
         { label: 'Hide Others', shortcut: '⌥⌘H', action: () => console.log('Hide Others') },
         { divider: true },
-        { label: isAuthenticated ? 'Sign Out' : 'Sign In', shortcut: '⌘Q', action: isAuthenticated ? onLogout : () => document.querySelector<HTMLButtonElement>('.sign-in-btn')?.click() }
+        { label: isAuthenticated ? 'Sign Out' : 'Sign In', shortcut: '⌘Q', action: isAuthenticated ? onLogout : () => { connectWallet().catch(() => alert('No BRC-100 wallet found. Open Bitcoin Calendar inside bWalletX, or run bWalletX on this computer.')); } }
       ]
     },
     {
@@ -280,7 +280,7 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
         { label: 'BAP Executive Summary', href: '/bitcoin-calendar/bap' },
         { divider: true },
         { label: 'BSV SDK Docs', href: 'https://docs.bsvblockchain.org' },
-        { label: 'HandCash SDK Docs', href: 'https://docs.handcash.io' },
+        { label: 'BRC-100 Wallet Interface', href: 'https://bsv.brc.dev/wallet/0100' },
         { divider: true },
         { label: 'GitHub Repository', href: 'https://github.com/bitcoin-apps-suite/bitcoin-calendar' },
         { label: '$BCAL Token', action: () => window.location.href = '/token' },
@@ -1233,11 +1233,11 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
 
         </div>
 
-        {/* Authentication Status - Clickable to open HandCash connection */}
+        {/* Authentication Status - Clickable to sign in with bWalletX */}
         <button
           onClick={() => {
-            const handcashService = new HandCashService();
-            handcashService.login();
+            if (isAuthenticated) return;
+            connectWallet().catch(() => alert('No BRC-100 wallet found. Open Bitcoin Calendar inside bWalletX, or run bWalletX on this computer.'));
           }}
           style={{
             background: 'transparent',
@@ -1257,7 +1257,7 @@ const CleanTaskbar: React.FC<TaskbarProps> = ({
           onMouseLeave={(e) => {
             e.currentTarget.style.background = 'transparent';
           }}
-          title={isAuthenticated ? 'Manage HandCash connection' : 'Connect with HandCash'}
+          title={isAuthenticated ? 'Signed in with your wallet' : 'Sign in with bWalletX'}
         >
           <span>{isAuthenticated && currentUser ? (currentUser.handle || 'Connected') : (
             isMobile ? '' : 'Not Connected'

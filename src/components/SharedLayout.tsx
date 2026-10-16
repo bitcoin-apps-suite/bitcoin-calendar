@@ -1,12 +1,11 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { GoogleAuthProvider } from './GoogleAuth'
 import DevSidebar from './DevSidebar'
 import CleanTaskbar from './CleanTaskbar'
 import DockManager from './DockManager'
 import ServiceWorkerRegistration from './ServiceWorkerRegistration'
-import { HandCashService, HandCashUser } from '../services/HandCashService'
+import { useWallet } from '../lib/bwallet'
 
 interface SharedLayoutProps {
   children: React.ReactNode
@@ -16,8 +15,9 @@ const SharedLayout: React.FC<SharedLayoutProps> = ({ children }) => {
   const [isHydrated, setIsHydrated] = useState(false)
   const [devSidebarCollapsed, setDevSidebarCollapsed] = useState(true) // Default to collapsed for SSR
   const [isMobile, setIsMobile] = useState(false) // Default to desktop for SSR
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const [currentUser, setCurrentUser] = useState<HandCashUser | null>(null)
+  const { user, disconnect } = useWallet()
+  const isAuthenticated = !!user
+  const currentUser = user ? { handle: user.name, identityKey: user.identityKey } : null
   const [showAIChat, setShowAIChat] = useState(false)
   
   // Check if running in Bitcoin OS
@@ -41,35 +41,10 @@ const SharedLayout: React.FC<SharedLayoutProps> = ({ children }) => {
     }
   }, [])
 
-  // Initialize HandCash service
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const initHandCash = async () => {
-        try {
-          const handCashService = new HandCashService()
-          const user = handCashService.getCurrentUser()
-          if (user) {
-            setCurrentUser(user)
-            setIsAuthenticated(true)
-          }
-        } catch (error) {
-          console.log('HandCash not authenticated:', error)
-        }
-      }
-      
-      initHandCash()
-    }
-  }, [])
-
-  const handleLogout = () => {
-    setCurrentUser(null)
-    setIsAuthenticated(false)
-    const handCashService = new HandCashService()
-    handCashService.logout()
-  }
+  const handleLogout = () => disconnect()
 
   return (
-    <GoogleAuthProvider>
+    <>
       <ServiceWorkerRegistration />
       
       {/* Developer Sidebar - Desktop Only */}
@@ -109,7 +84,7 @@ const SharedLayout: React.FC<SharedLayoutProps> = ({ children }) => {
       
       {/* Dock Manager - Only show when not running in Bitcoin OS */}
       {!isInOS && <DockManager />}
-    </GoogleAuthProvider>
+    </>
   )
 }
 
