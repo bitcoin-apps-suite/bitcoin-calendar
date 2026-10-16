@@ -63,7 +63,7 @@ const FeaturesPage: React.FC = () => {
             <div className="step-card">
               <div className="step-number">03</div>
               <h3>Instant Payments</h3>
-              <p>Receive micropayments instantly through HandCash or Bitcoin wallets</p>
+              <p>Receive micropayments instantly in bWalletX or any BRC-100 wallet</p>
             </div>
           </div>
         </div>
@@ -215,9 +215,9 @@ const FeaturesPage: React.FC = () => {
               <p>Unlimited scale for data storage</p>
             </div>
             <div className="tech-item">
-              <div className="tech-logo">HC</div>
-              <h4>HandCash</h4>
-              <p>Simple Bitcoin payments</p>
+              <div className="tech-logo">bW</div>
+              <h4>bWalletX</h4>
+              <p>Sign in and pay with any BRC-100 wallet</p>
             </div>
             <div className="tech-item">
               <div className="tech-logo">1SAT</div>

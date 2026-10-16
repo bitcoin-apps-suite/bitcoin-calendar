@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Bitcoin Calendar - Blockchain-based Calendar App',
-  description: 'A blockchain-based calendar app with HandCash authentication',
+  description: 'A blockchain-based calendar app saved privately on Bitcoin',
 }
 
 export default function RootLayout({

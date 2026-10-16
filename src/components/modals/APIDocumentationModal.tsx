@@ -21,7 +21,7 @@ const APIDocumentationModal: React.FC<APIDocumentationModalProps> = ({ isOpen, o
           <div className="preference-section">
             <h3>Authentication</h3>
             <p style={{color: 'rgba(255,255,255,0.8)', marginBottom: '16px'}}>
-              All API requests require a valid HandCash access token in the Authorization header:
+              All API requests require a valid wallet-signed token in the Authorization header:
             </p>
             <div className="api-endpoint">
               <code style={{color: '#00ff88'}}>Authorization: Bearer YOUR_ACCESS_TOKEN</code>
